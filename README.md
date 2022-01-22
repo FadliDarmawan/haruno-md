@@ -1,6 +1,6 @@
 # Hiroshi
 <p align="left">
-	<img src="https://telegra.ph/file/a754583d878c545504be7.jpg" width="35%" style="margin-left: auto;margin-right: auto;display: block;">
+	<img src="https://telegra.ph/file/62b64de68cac87d1207a3.jpg" width="35%" style="margin-left: auto;margin-right: auto;display: block;">
 </p>
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/FadliDarmawan/Hiroshi)
