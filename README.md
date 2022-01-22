@@ -11,14 +11,13 @@ Haruno md version.
 Baileys-MD (multi-device) is still a beta version. there'll so many bug on it.
 
 # Termux
-NOTE: untuk pengguna termux yang ingin menggunakan fitur nhentai(dari module nhentai-node-api) harap aktifkan dns (dns.google) agar bisa mengakses fitur (kena internet positif)
 ```
 apt install ffmpeg
 apt install imagemagick
 apt install nodejs
 apt install git
 git clone https://github.com/FadliDarmawan/Hiroshi
-cd haruno
+cd Hiroshi
 npm i
 node . (option)
 ````
@@ -30,7 +29,7 @@ node . (option)
 * Unduh & Instal ImageMagick [`Klik Disini`](https://imagemagick.org/script/download.php)
 ```
 git clone https://github.com/FadliDarmawan/Hiroshi
-cd haruno
+cd Hiroshi
 npm i
 node . (option)
 ```
@@ -124,4 +123,4 @@ conn.logger.level = 'debug'
  [![Nurutomo](https://github.com/Nurutomo.png?size=100)](https://github.com/Nurutomo) | [![Fadli](https://github.com/FadliDarmawan.png?size=100)](https://github.com/FadliDarmawan)
 ----|----
 [Nurutomo](https://github.com/Nurutomo) | [Fadli](https://github.com/FadliDarmawan)
- Penulis / Pencipta | Pengembang ulang
+ Penulis / Pencipta | Pengembang 
