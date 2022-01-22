@@ -124,4 +124,4 @@ conn.logger.level = 'debug'
  [![Nurutomo](https://github.com/Nurutomo.png?size=100)](https://github.com/Nurutomo) | [![Fadli](https://github.com/FadliDarmawan.png?size=100)](https://github.com/FadliDarmawan)
 ----|----|----
 [Nurutomo](https://github.com/Nurutomo) | [Fadli](https://github.com/FadliDarmawan)
- Penulis / Pencipta | Penulis ulang | Pengembang ulang
+ Penulis / Pencipta | Pengembang ulang
