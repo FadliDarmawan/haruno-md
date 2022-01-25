@@ -8,7 +8,7 @@ const Readline = require('readline')
 const yargs = require('yargs/yargs')
 const rl = Readline.createInterface(process.stdin, process.stdout)
 
-CFonts.say('Haruno Bot', {
+CFonts.say('Hiroshi', {
     colors: ['#f2aa4c'],
     font: 'block',
     align: 'center',
