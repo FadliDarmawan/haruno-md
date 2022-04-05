@@ -1,6 +1,6 @@
 {
     "name": "hiroshi",
-    "version": "1.0",
+    "version": "1.0.0",
     "description": "Customizable WhatsApp Bot",
     "depecrated": false,
     "main": "index.js",
