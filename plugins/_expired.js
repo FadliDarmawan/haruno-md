@@ -1,5 +1,5 @@
+import fetch from 'node-fetch'
 export async function all(m) {
-    import fetch from 'node-fetch'
     if (!m.isGroup)
         return
     let chats = global.db.data.chats[m.chat]

@@ -1,5 +1,4 @@
-import xa from ('xfarr-api')
-let fetch = require('node-fetch')
+import xa from 'xfarr-api'
 let handler = async(m, { conn, usedPrefix, args, command }) => {
     if(!args[0]) throw `Harap masukkan URL sebagai parameter!\n\nContoh: ${usedPrefix + command} https://vt.tiktok.com/ZSe5pocWX/`
     xa.Tiktok(args[0])
@@ -11,6 +10,5 @@ let handler = async(m, { conn, usedPrefix, args, command }) => {
 handler.command = /^(tiktok|tk|tkdl|td)$/i
 handler.tags = ['downloader']
 handler.help = ['tiktok <url>']
-module.exports = handler
 
 export default handler
