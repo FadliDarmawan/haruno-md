@@ -427,7 +427,7 @@ handler.botAdmin = false
 handler.fail = null
 handler.exp = 3
 
-module.exports = handler
+export default handler
 
 const more = String.fromCharCode(1)
 const readMore = more.repeat(1)

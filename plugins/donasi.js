@@ -19,10 +19,11 @@ let handler = async(m, { conn }) => {
 ├ OVO: 628112958665
 ├ Pulsa (XL): 6281943265086
 └────`.trim()
+let message = await prepareWAMessageMedia({ image: fs.readFileSync('./src/hiroshi.jpg')}, { upload: conn.waUploadToServer })
     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
         templateMessage: {
             hydratedMessage: {
-                imageMessage: await(await fetch(image)).buffer(),
+                imageMessage: message.imageMessage,
                 hydrayedContentText: teks,
                 hydratedFooterText: watermark, 
                 hydratedButtons: [{

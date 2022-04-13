@@ -64,7 +64,7 @@ export async function handler(chatUpdate) {
                     user.banned = false
                 if (!isNumber(user.warn))
                     user.warn = 0
-                if (!isNumber(user,joincount))
+                if (!isNumber(user.joincount))
                     user.joincount = 3
                 if (!isNumber(user.level))
                     user.level = 0

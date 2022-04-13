@@ -31,6 +31,7 @@
     "license": "MIT",
     "dependencies": {
         "@adiwajshing/baileys": "github:adiwajshing/baileys",
+        "@adiwajshing/keyed-db": "^0.2.4",
         "@bochilteam/scraper": "^2.0.0",
         "awesome-phonenumber": "^2.68.0",
         "axios": "^0.24.0",
@@ -61,7 +62,9 @@
         "syntax-error": "^1.4.0",
         "terminal-image": "^2.0.0",
         "url-regex-safe": "^3.0.0",
-        "yargs": "^17.3.1"
+        "xfarr-api": "^1.0.3",
+        "yargs": "^17.3.1",
+        "yt-search": "^2.10.3"
     },
     "optionalDependencies": {
         "wa-sticker-formatter": "^4.3.2"
