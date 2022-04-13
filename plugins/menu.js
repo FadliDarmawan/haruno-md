@@ -1,5 +1,4 @@
 import { xpRange } from '../lib/levelling.js'
-import { MessageType } from '@adiwajshing/baileys'
 import { promises } from 'fs'
 import { join } from 'path'
 import fetch from 'node-fetch'
