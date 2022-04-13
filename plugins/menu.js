@@ -357,14 +357,10 @@ let handler = async (m, { conn, usedPrefix: _p, args, command, __dirname }) => {
         await conn.sendMessage(m.chat, listMessage, { quoted: m})
     }
     let groups = {}
-    for (let tag in tags) {
-      groups[tag] = []
-      for (let plugin of help)
-        if (plugin.tags && plugin.tags.includes(tag))
-          if (plugin.help) groups[tag].push(plugin)
-      // for (let tag of plugin.tags)
-      //   if (!(tag in tags)) tags[tag] = tag
-    }
+    for (let plugin of help)
+      if (plugin && 'tags' in plugin)
+        for (let tag of plugin.tags)
+          if (!(tag in tags) && tag) tags[tag] = tag
     conn.menu = conn.menu ? conn.menu : {}
     let before = conn.menu.before || defaultMenu.before
     let header = conn.menu.header || defaultMenu.header
