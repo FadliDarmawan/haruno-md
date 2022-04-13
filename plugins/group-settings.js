@@ -1,4 +1,4 @@
-import { GroupSettingChange } from ('@adiwajshing/baileys')
+import { GroupSettingChange } from '@adiwajshing/baileys'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 	let isClose = {
 		'open': false,
@@ -15,7 +15,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 contoh:
 ${usedPrefix + command} tutup
 ${usedPrefix + command} buka
-	`.trim(), watermark, 'Buka', ',grup 1', 'Tutup', ',grup 0')
+	`.trim(), watermark, false, [['Buka', ',grup 1'], ['Tutup', ',grup 0']], m)
 		throw false
 	}
 	await conn.groupSettingChange(m.chat, GroupSettingChange.messageSend, isClose)
