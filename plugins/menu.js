@@ -356,7 +356,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command, __dirname }) => {
             sections
         }
         await conn.sendMessage(m.chat, listMessage, { quoted: m})
-    }
+    } else {
     let groups = {}
     for (let tag in tags) {
       groups[tag] = []
@@ -407,6 +407,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command, __dirname }) => {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     await conn.sendButton(m.chat, text.trim(), watermark, await (await fetch(image)).buffer(), [['Pemilik Bot', `${_p}owner`], ['Donasi', `${_p}donasi`], ['Group Official', '.harunoff']],  m)
+  }
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
