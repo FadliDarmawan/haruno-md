@@ -14,7 +14,7 @@ const defaultMenu = {
   footer: '└────\n',
   after: ``,
 }
-let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
+let handler = async (m, { conn, usedPrefix: _p, args, command, __dirname }) => {
   let tags
   let teks = `${args[0]}`.toLowerCase()
   let arrayMenu = ['all', 'game', 'xp', 'stiker', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'database', 'islamic', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
