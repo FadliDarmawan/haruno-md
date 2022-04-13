@@ -42,7 +42,7 @@ let message = await prepareWAMessageMedia({ image: fs.readFileSync('./src/hirosh
             }
         }
     }), { usedJid: m.sender, quoted: m})
-    return await conn.relayMessage(
+    return await conn.sendMessage(
         m.chat,
         template.message,
         { messageId: template.key.id }
