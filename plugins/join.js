@@ -9,7 +9,7 @@ let handler = async (m, { conn, args, usedPrefix, isPrems, isOwner, command }) =
     if (!(isPrems || isOwner)) {
         if (user.joincount === 0 ) throw `Kamu sudah melebihi token/limit memasukkan bot ke dalam group!`
         user.joincount -= 1
-        let res = await conn.acceptInvite(code)
+        let res = await conn.groupAcceptInvite(code)
         m.reply('Joining group...').then(async() => {
             var jumlahHari = 86400000 * 1
             var now = new Date() * 1
@@ -22,7 +22,7 @@ let handler = async (m, { conn, args, usedPrefix, isPrems, isOwner, command }) =
     } else if (!isOwner) {
         if (users.joincount === 0) throw `Kamu sudah melebihi token/limit memasukkan bot ke dalam group!`
         user.joincount -= 1
-        let res = await conn.acceptInvite(code)
+        let res = await conn.groupAcceptInvite(code)
         m.reply('Joining group...').then(async() => {
             var jumlahHari = 86400000 * 30
             var now = new Date() * 1
@@ -34,7 +34,7 @@ let handler = async (m, { conn, args, usedPrefix, isPrems, isOwner, command }) =
         })
     } else if (isOwner) {
         if (!args[1]) throw `Masukkan format yang benar! format: .join <link> <jumlah hari>`
-        let res = await conn.acceptInvite(code)
+        let res = await conn.groupAcceptInvite(code)
         m.reply('Joining group...').then(async() => { 
             var jumlahHari = 86400000 * args[1]
             var now = new Date() * 1

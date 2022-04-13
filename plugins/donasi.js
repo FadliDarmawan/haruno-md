@@ -45,7 +45,7 @@ let message = await prepareWAMessageMedia({ image: fs.readFileSync('./src/hirosh
     return await conn.sendMessage(
         m.chat,
         template.message,
-        { messageId: template.key.id }
+        { quoted: m }
     )
 }
 handler.help = ['donasi']
