@@ -1,7 +1,7 @@
 import { xpRange } from '../lib/levelling'
 import { MessageType } from '@adiwajshing/baileys'
-import fs from 'fs'
-import path from 'path'
+import { promises } from 'fs'
+import { join } from 'path'
 import fetch from 'node-fetch'
 import moment from 'moment-timezone'
 const defaultMenu = {
@@ -118,7 +118,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
 
 
   try {
-    let packager = JSON.parse(await fs.promises.readFile(path.join(__dirname, '../package.json')).catch(_ => '{}'))
+    let packager = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => '{}'))
     let { exp, limit, level, role, registered } = global.db.data.users[m.sender]
     let { min, xp, max } = xpRange(level, global.multiplier)
     let name = registered ? global.db.data.users[m.sender].name : conn.getName(m.sender)
