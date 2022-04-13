@@ -159,7 +159,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command, __dirname }) => {
     let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
     let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(plugin => {
       return {
-        help: Array.isArray(plugin.help) ? plugin.help : [plugin.help],
+        help: Array.isArray(plugin.tags) ? plugin.help : [plugin.help],
         tags: Array.isArray(plugin.tags) ? plugin.tags : [plugin.tags],
         prefix: 'customPrefix' in plugin,
         limit: plugin.limit,
@@ -350,13 +350,12 @@ let handler = async (m, { conn, usedPrefix: _p, args, command, __dirname }) => {
           const listMessage = {
             title: `${ucapan()}, ${name}`.trim(),
             text: "Berikut ini adalah daftar menu Haruno Bot.",
-            description: "Silahkan tekan tombol \"Click Here\" untuk melihat sub-menu Haruno Bot.\n\nJika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada owner.",
+            footerText: "Silahkan tekan tombol \"Click Here\" untuk melihat sub-menu Haruno Bot.\n\nJika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada owner.",
             buttonText: "Click Here",
             sections
         }
         await conn.sendMessage(m.chat, listMessage, { quoted: m})
     }
-    let groups = {}
     for (let plugin of help)
       if (plugin && 'tags' in plugin)
         for (let tag of plugin.tags)
