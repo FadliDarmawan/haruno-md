@@ -350,11 +350,11 @@ let handler = async (m, { conn, usedPrefix: _p, args, command, __dirname }) => {
           const listMessage = {
             title: `${ucapan()}, ${name}`.trim(),
             text: "Berikut ini adalah daftar menu Haruno Bot.",
-            footerText: "Silahkan tekan tombol \"Click Here\" untuk melihat sub-menu Haruno Bot.\n\nJika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada owner.",
+            description: "Silahkan tekan tombol \"Click Here\" untuk melihat sub-menu Haruno Bot.\n\nJika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada owner.",
             buttonText: "Click Here",
             sections
         }
-        await conn.sendMessage(m.chat, listMessage)
+        await conn.sendMessage(m.chat, listMessage, { quoted: m})
     }
     let groups = {}
     for (let tag in tags) {
@@ -388,7 +388,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command, __dirname }) => {
       }),
       after
     ].join('\n')
-    text = typeof conn.menu == 'string' ? conn.menu : typeof conn.menu == 'object' ? _text : ''
+    let text = typeof conn.menu == 'string' ? conn.menu : typeof conn.menu == 'object' ? _text : ''
     let replace = {
       '%': '%',
       p: _p, uptime, muptime,
