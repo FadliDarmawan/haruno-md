@@ -118,7 +118,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
 
 
   try {
-    let package = JSON.parse(await fs.promises.readFile(path.join(__dirname, '../package.json')).catch(_ => '{}'))
+    let packager = JSON.parse(await fs.promises.readFile(path.join(__dirname, '../package.json')).catch(_ => '{}'))
     let { exp, limit, level, role, registered } = global.db.data.users[m.sender]
     let { min, xp, max } = levelling.xpRange(level, global.multiplier)
     let name = registered ? global.db.data.users[m.sender].name : conn.getName(m.sender)
@@ -394,14 +394,14 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       '%': '%',
       p: _p, uptime, muptime,
       me: conn.user.name,
-      npmname: package.name,
-      npmdesc: package.description,
-      version: package.version,
+      npmname: packager.name,
+      npmdesc: packager.description,
+      version: packager.version,
       exp: exp - min,
       maxexp: xp,
       totalexp: exp,
       xp4levelup: max - exp <= 0 ? `Siap untuk *${_p}levelup*` : `${max - exp} XP lagi untuk levelup`,
-      github: package.homepage ? package.homepage.url || package.homepage : '[unknown github url]',
+      github: packager.homepage ? packager.homepage.url || packager.homepage : '[unknown github url]',
       level, limit, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
       readmore: readMore
     }
