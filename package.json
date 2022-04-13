@@ -1,9 +1,9 @@
 {
     "name": "hiroshi",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "Customizable WhatsApp Bot",
-    "depecrated": false,
     "main": "index.js",
+    "type": "module",
     "directories": {
         "lib": "lib",
         "src": "src",
@@ -15,12 +15,7 @@
         "test2": "nodemon index.js"
     },
     "keywords": [
-        "Hiroshi",
-        "WhatsApp Bot",
-        "Baileys-MD",
-        "whatsapp",
-        "wabot-aq",
-        "FadliDarmawan"
+        "termux-whatsapp-bot"
     ],
     "homepage": "https://github.com/FadliDarmawan/Hiroshi",
     "author": {
@@ -28,49 +23,47 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Nurutomo/wabot-aq.git"
+        "url": "git+https://github.com/FadliDarmawan/Hiroshi.git"
     },
     "bugs": {
         "url": "https://github.com/FadliDarmawan/Hiroshi/issues"
     },
     "license": "MIT",
     "dependencies": {
-        "@adiwajshing/baileys-md": "github:adiwajshing/baileys#multi-device",
-        "awesome-phonenumber": "^2.58.0",
+        "@adiwajshing/baileys": "github:adiwajshing/baileys",
+        "@bochilteam/scraper": "^2.0.0",
+        "awesome-phonenumber": "^2.68.0",
         "axios": "^0.24.0",
-        "brainly-scraper-v2": "^2.0.9",
         "cfonts": "^2.10.0",
-        "chalk": "^4.1.2",
+        "chalk": "^5.0.0",
         "cheerio": "^1.0.0-rc.10",
         "colors": "1.4.0",
-        "file-type": "^16.5.3",
+        "express": "^4.17.3",
+        "file-type": "^17.1.1",
         "fluent-ffmpeg": "^2.1.2",
-        "form-data": "^4.0.0",
-        "g-i-s": "^2.1.6",
-        "google-it": "^1.6.2",
+        "formdata-node": "^4.3.2",
         "human-readable": "^0.2.1",
-        "imgbb-uploader": "^1.3.5",
-        "jsdom": "^18.1.1",
+        "jsdom": "^19.0.0",
         "lodash": "^4.17.21",
-        "lowdb": "^2.1.0",
-        "moment-timezone": "^0.5.34",
-        "mongoose": "^6.0.14",
-        "nhentai-node-api": "^1.1.2",
-        "node-fetch": "^2.6.6",
+        "lowdb": "^3.0.0",
+        "mongoose": "github:Automattic/mongoose",
+        "node-fetch": "^3.2.0",
         "node-gtts": "^2.0.2",
-        "node-os-utils": "^1.3.5",
-        "node-webpmux": "^3.1.0",
-        "nodemon": "^2.0.15",
+        "node-webpmux": "^3.1.1",
         "perf_hooks": "^0.0.1",
+        "pino": "^7.8.0",
+        "pino-pretty": "^7.5.1",
         "qrcode": "^1.5.0",
+        "qrcode-terminal": "^0.12.0",
         "readline": "^1.3.0",
-        "request": "^2.88.2",
         "similarity": "^1.2.1",
+        "socket.io": "^4.4.1",
         "syntax-error": "^1.4.0",
         "terminal-image": "^2.0.0",
-        "url-regex-safe": "^2.1.0",
-        "xfarr-api": "^1.0.3",
-        "yargs": "^17.2.1",
-        "yt-search": "^2.10.2"
+        "url-regex-safe": "^3.0.0",
+        "yargs": "^17.3.1"
+    },
+    "optionalDependencies": {
+        "wa-sticker-formatter": "^4.3.2"
     }
 }

@@ -1,33 +1,44 @@
-global.owner = ['628112958665', '6288215569001','628998512588', '6283175998566', '6285693602003', '6283153189868']
-global.APIs = {
-    neoxr: 'https://api.neoxr.eu.org/',
-    nrtm: 'https://nurutomo.herokuapp.com',
-    xteam: 'https://api.xteam.xyz',
-    zeks: 'https://api.zeks.xyz',
+import { watchFile, unwatchFile } from 'fs'
+import chalk from 'chalk'
+import { fileURLToPath } from 'url'
+
+global.owner = [
+  ['628112958665']
+  // [number, dia creator/owner?, dia developer?]
+] // Put your number here
+global.mods = [] // Want some help?
+global.prems = [] // Premium user has unlimited limit
+global.APIs = { // API Prefix
+  // name: 'https://website'
+  nrtm: 'https://nurutomo.herokuapp.com',
+  bg: 'http://bochil.ddns.net',
+  xteam: 'https://api.xteam.xyz',
+  zahir: 'https://zahirr-web.herokuapp.com',
+  zeks: 'https://api.zeks.xyz',
+  pencarikode: 'https://pencarikode.xyz',
+  LeysCoder: 'https://leyscoders-api.herokuapp.com'
 }
-global.APIKeys = {
-    'https://api.neoxr.eu.org/': 'yntkts',
-    'https://api.xteam.xyz': 'HIRO',
-    'https://api.zeks.xyz': 'FVe0JFCdME58YSKmhoDWdRtyuJt',
+global.APIKeys = { // APIKey Here
+  // 'https://website': 'apikey'
+  'https://api.xteam.xyz': 'd90a9e986e18778b',
+  'https://zahirr-web.herokuapp.com': 'zahirgans',
+  'https://api.zeks.xyz': 'apivinz',
+  'https://pencarikode.xyz': 'pais',
+  'https://leyscoders-api.herokuapp.com': 'dappakntlll'
 }
 
 // Sticker WM
-global.packname = 'Haruno'
+global.packname = 'Hiroshi'
 global.author = 'Fadli'
-
+global.image = 'https://telegra.ph/file/2eb7da4b4df70aa35350d.jpg'
+global.watermark = '© Hiroshi'
 global.wait = '「 ⏱️ 」Harap tunggu...'
-global.eror = '「❗」Server ERROR!'
-global.fla = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&fillColor1Color=%23f2aa4c&fillColor2Color=%23f2aa4c&fillColor3Color=%23f2aa4c&fillColor4Color=%23f2aa4c&fillColor5Color=%23f2aa4c&fillColor6Color=%23f2aa4c&fillColor7Color=%23f2aa4c&fillColor8Color=%23f2aa4c&fillColor9Color=%23f2aa4c&fillColor10Color=%23f2aa4c&fillOutlineColor=%23f2aa4c&fillOutline2Color=%23f2aa4c&backgroundColor=%23101820&text='
-global.thumbfoto = 'https://telegra.ph/file/39bbded9693c9338069fd.jpg'
-global.watermark = '© Haruno'
 
-global.multiplier = 59 // Semakin tinggi, semakin sulit naik level
+global.multiplier = 40 // The higher, The harder levelup
 
-let chalk = require('chalk')
-let file = require.resolve(__filename)
-fs.watchFile(file, () => {
-  fs.unwatchFile(file)
+let file = fileURLToPath(import.meta.url)
+watchFile(file, () => {
+  unwatchFile(file)
   console.log(chalk.redBright("Update 'config.js'"))
-  delete require.cache[file]
-  require(file)
+  import(`${file}?update=${Date.now()}`)
 })
