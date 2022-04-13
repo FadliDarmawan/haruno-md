@@ -19,6 +19,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command, __dirname }) => {
   let teks = `${args[0]}`.toLowerCase()
   let arrayMenu = ['all', 'game', 'xp', 'stiker', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'database', 'islamic', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
   if (!arrayMenu.includes(teks)) teks = '404'
+  if (!args[0]) teks = '404'
   if (teks == 'all') tags = {
     'main': 'Utama',
     'game': 'Game',
