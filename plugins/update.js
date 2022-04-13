@@ -21,4 +21,4 @@ handler.botAdmin = false
 handler.fail = null
 handler.exp = 0
 
-module.exports = handler
+export default handler

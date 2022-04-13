@@ -50,7 +50,7 @@ handler.tags = ['tools']
 
 handler.command = /^join$/i
 
-module.exports = handler
+export default handler
 
 function msToDate(ms) {
     temp = ms

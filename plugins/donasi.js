@@ -8,6 +8,7 @@ const {
     areJidsSameUser,
     generateForwardMessageContent,
     generateWAMessageFromContent,
+    prepareWAMessageMedia,
     WAMessageStubType,
     extractMessageContent
 } = (await import('@adiwajshing/baileys')).default

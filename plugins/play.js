@@ -1,4 +1,4 @@
-import { servers, yta, ytv } from '../lib/y2mate'
+import { servers, yta, ytv } from '../lib/'
 import yts from 'yt-search'
 import fetch from'node-fetch'
 let handler = async (m, { conn, command, text, usedPrefix }) => {
