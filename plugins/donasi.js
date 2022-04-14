@@ -19,7 +19,7 @@ let handler = async(m, { conn }) => {
         image: {url: image}
     }
 
-    await conn.sendMessage(m.chat, templateMessage)
+    await conn.sendMessage(m.chat, buttonMessage, { quoted: m})
 }
 
 handler.help = ['donasi']
