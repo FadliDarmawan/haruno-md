@@ -16,7 +16,7 @@ let handler = async(m, { conn }) => {
         text: teks,
         footer: watermark, 
         templateButtons: templateButtons,
-        image: {url: image}
+        image: {url: global.image}
     }
 
     await conn.sendMessage(m.chat, buttonMessage, { quoted: m})
