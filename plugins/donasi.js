@@ -1,3 +1,4 @@
+import fetch from 'node-fetch'
 let handler = async(m, { conn }) => {
     let teks = `
 ┌─「 Donasi 」
@@ -16,7 +17,7 @@ let handler = async(m, { conn }) => {
         text: teks,
         footer: watermark, 
         templateButtons: templateButtons,
-        image: {url: global.image}
+        image: await(await fetch(image)).buffer()
     }
 
     await conn.sendMessage(m.chat, buttonMessage, { quoted: m})
