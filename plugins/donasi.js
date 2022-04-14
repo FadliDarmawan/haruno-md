@@ -7,22 +7,27 @@ let handler = async(m, { conn }) => {
 ├ OVO: 628112958665
 ├ Pulsa (XL): 6281943265086
 └────`.trim()
-
-    const templateButtons = [
-        {index: 1, urlButton: {displayText: 'Saweria', url: 'https://saweria.co/FadliStudio'}},
-        {index: 2, quickReplyButton: {displayText: 'Owner', id: '.owner'}}
-    ]
-
-    const buttonMessage = {
-        text: teks,
-        footer: watermark, 
-        templateButtons: templateButtons,
-        image: await(await fetch(image)).buffer()
+    const message = {
+        image: { url: image},
+        jpegThumbnail: await(await fetch(image)).buffer(),
+        caption: teks,
+        footer: watermark,
+        templateButtons: [
+            {
+                urlButton: {
+                    displayText: 'Saweria',
+                    url: 'https://saweria.co/FadliStudio'
+                }
+            }, {
+                quickReplyButton: {
+                    displayText: 'Owner',
+                    id: '.owner'
+                }
+            }
+        ]
     }
-
-    await conn.sendMessage(m.chat, buttonMessage, { quoted: m})
+    return await conn.sendMessage(m.chat, message, { quoted: m })
 }
-
 handler.help = ['donasi']
 handler.tags = ['info']
 handler.command = /^dona(te|si)$/i
