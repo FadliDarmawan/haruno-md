@@ -29,4 +29,4 @@ Joincount: *${user.joincount}*
 handler.help = ['my [@62XXXX]']
 handler.tags = ['xp']
 handler.command = /^(my|limit)$/i
-module.exports = handler
+export default handler
