@@ -73,9 +73,6 @@ Pembayaran bisa melalui: Gopay, Dana, OVO, Pulsa (XL)
         }
     }
 }
-
-export default handler
-
 function clockString(ms) {
     let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
     let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60

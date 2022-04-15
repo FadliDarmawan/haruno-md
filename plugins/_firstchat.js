@@ -50,8 +50,6 @@ Terimakasih!
     await this.sendMessage(m.chat, message, { quoted: m })
     user.firstchat = false
 }
-
-export default handler
 function ucapan() {
     const time = moment.tz('Asia/Jakarta').format('HH')
     res = "Selamat dinihari"

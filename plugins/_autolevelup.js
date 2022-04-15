@@ -14,7 +14,7 @@ export async function before(m) {
             pp = await this.profilePictureUrl(who, 'image')
         } catch (e) {
         } finally {
-            conn.reply(m.chat, `@${who.split`@`[0]} _*Level Up!*_\n${before} -> ${user.level}`, m, { mentions: [who], contextInfo: {
+            this.reply(m.chat, `@${who.split`@`[0]} _*Level Up!*_\n${before} -> ${user.level}`, m, { mentions: [who], contextInfo: {
                 externalAdReply: {
                     sourceUrl: 'https://youtu.be/-tKVN2mAKRI',
                     title: 'Levelup!',
@@ -25,4 +25,3 @@ export async function before(m) {
         }
     }
 }
-export const disabled = true

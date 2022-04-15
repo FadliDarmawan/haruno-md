@@ -40,109 +40,124 @@ export async function handler(chatUpdate) {
             if (typeof user !== 'object')
                 global.db.data.users[m.sender] = {}
             if (user) {
-                if (!isNumber(user.exp))
-                    user.exp = 0
-                if (!isNumber(user.limit))
-                    user.limit = 10
-                if (!isNumber(user.lastclaim))
-                    user.lastclaim = 0
-                if (!('registered' in user))
-                    user.registered = false
+                if (!isNumber(user.exp)) user.exp = 0
+                if (!isNumber(user.limit)) user.limit = 10
+                if (!('registered' in user)) user.registered = false
+                if (!isNumber(user.lastclaim)) user.lastclaim = 0
                 if (!user.registered) {
-                    if (!('name' in user))
-                        user.name = m.name
-                    if (!isNumber(user.age))
-                        user.age = -1
-                    if (!isNumber(user.regTime))
-                        user.regTime = -1
+                    if (!('name' in user)) user.name = this.getName(m.sender)
+                    if (!isNumber(user.nim)) user.age = -1
+                    if (!isNumber(user.regTime)) user.regTime = -1
                 }
-                if (!isNumber(user.afk))
-                    user.afk = -1
-                if (!('afkReason' in user))
-                    user.afkReason = ''
-                if (!('banned' in user))
-                    user.banned = false
-                if (!isNumber(user.warn))
-                    user.warn = 0
-                if (!isNumber(user.joincount))
-                    user.joincount = 3
-                if (!isNumber(user.level))
-                    user.level = 0
-                if (!('role' in user))
-                    user.role = 'Beginner'
-                if (!('autolevelup' in user))
-                    user.autolevelup = true
+                if (!isNumber(user.afk)) user.afk = -1
+                if (!('afkReason' in user)) user.afkReason = ''
+                if (!('autolevelup' in user)) user.autolevelup = false
+                if (!('banned' in user)) user.banned = false
+                if (!('level' in user)) user.level = 0
+                if (!('premium' in user)) user.premium = false
+                if (!('firstchat' in user)) user.firstchat = false
+                if (!isNumber(user.premiumTime)) user.premiumTime = 0
+                if (!('role' in user)) user.role = ''
+                if (!isNumber(user.joincount)) user.joincount = 3
+                if (!isNumber(user.call)) user.call = 0
+                if (!isNumber(user.pc)) user.pc = 0
+                if (!isNumber(user.reward)) user.reward = 0
+                if (!isNumber(user.warning)) user.warnimg = 0
+                if (!isNumber(user.dailyReward)) user.dailyReward = 0
             } else
                 global.db.data.users[m.sender] = {
                     exp: 0,
                     limit: 10,
-                    lastclaim: 0,
                     registered: false,
-                    name: m.name,
+                    lastclaim: 0, 
+                    name: this.getName(m.sender),
                     age: -1,
                     regTime: -1,
                     afk: -1,
                     afkReason: '',
+                    autolevelup: false,
                     banned: false,
-                    warn: 0,
                     level: 0,
-                    role: 'Beginner',
-                    autolevelup: true,
-                    joincount: 3,
+                    premium: false,
+                    premiumTime: 0,
+                    firstchat: false,
+                    role: '',
+                    joincount: 0,
+                    call: 0,
+                    pc: 0,
+                    reward: 0,
+                    dailyReward: 0, 
+                    warning: 0,
                 }
             let chat = global.db.data.chats[m.chat]
             if (typeof chat !== 'object')
                 global.db.data.chats[m.chat] = {}
             if (chat) {
-                if (!('isBanned' in chat))
-                    chat.isBanned = false
-                if (!('welcome' in chat))
-                    chat.welcome = false
-                if (!('detect' in chat))
-                    chat.detect = false
-                if (!('sWelcome' in chat))
-                    chat.sWelcome = ''
-                if (!('sBye' in chat))
-                    chat.sBye = ''
-                if (!('sPromote' in chat))
-                    chat.sPromote = ''
-                if (!('sDemote' in chat))
-                    chat.sDemote = ''
-                if (!('delete' in chat))
-                    chat.delete = true
-                if (!('antiLink' in chat))
-                    chat.antiLink = false
-                if (!('viewonce' in chat))
-                    chat.viewonce = false
-                if (!('antiToxic' in chat))
-                    chat.antiToxic = false
-                if (!isNumber(chat.expired))
-                    chat.expired = 0
+                if (!('isBanned' in chat)) chat.isBanned = false
+                if (!('welcome' in chat)) chat.welcome = true
+                if (!('detect' in chat)) chat.detect = true
+                if (!('sWelcome' in chat)) chat.sWelcome = ''
+                if (!('sBye' in chat)) chat.sBye = ''
+                if (!('sPromote' in chat)) chat.sPromote = ''
+                if (!('sDemote' in chat)) chat.sDemote = ''
+                if (!('antiLink' in chat)) chat.antiLink = true
+                if (!('autoread' in chat)) chat.autoread = false
+                if (!('broadcast' in chat)) chat.broadcast = true
+                if (!('badword' in chat)) chat.badword = false
+                if (!('delete' in chat)) chat.delete = true
+                if (!('desc' in chat)) chat.desc = true
+                if (!('getmsg' in chat)) chat.getmsg = false
+                if (!isNumber(chat.expired)) chat.expired = 0
+                if (!('stiker' in chat)) chat.stiker = false
+                if (!('viewonce' in chat)) chat.viewonce = true
+                if (!('nsfw' in chat)) chat.nsfw = false
             } else
                 global.db.data.chats[m.chat] = {
                     isBanned: false,
-                    welcome: false,
-                    detect: false,
+                    welcome: true,
+                    detect: true,
                     sWelcome: '',
                     sBye: '',
                     sPromote: '',
                     sDemote: '',
+                    antiLink: true,
+                    autoread: false,
+                    broadcast: true,
                     delete: true,
-                    antiLink: false,
-                    viewonce: false,
-                    antiToxic: true,
+                    desc: true,
+                    getmsg: false,
                     expired: 0,
+                    stiker: false,
+                    viewonce: true,
+                    nsfw: true,
+                    badword: false,
                 }
             let settings = global.db.data.settings[this.user.jid]
             if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
             if (settings) {
-                if (!('self' in settings)) settings.self = false
-                if (!('autoread' in settings)) settings.autoread = false
-                if (!('restrict' in settings)) settings.restrict = false
+                if (!'autoread' in settings) settings.autoread = false
+                if (!'anon' in settings) settings.anon = true
+                if (!'anticall' in settings) settings.anticall = true
+                if (!'antispam' in settings) settings.antispam = true
+                if (!'private' in settings) settings.private = false
+                if (!'group' in settings) settings.group = false
+                if (!'restrict' in settings) settings.restrict = false
+                if (!'self' in settings) settings.self = false
+                if (!'backup' in settings) settings.backup = true
+                if (!isNumber(settings.backupDB)) settings.backupDB = 0
+                if (!'nhentai' in settings) settings.nhentai = true
             } else global.db.data.settings[this.user.jid] = {
-                self: false,
                 autoread: false,
-                restrict: false
+                anon: true,
+                anticall: true,
+                antispam: true,
+                private: false,
+                group: false,
+                restrict: false,
+                self: false,
+                backup: true,
+                backupDB: 0,
+                nhentai: true,
             }
         } catch (e) {
             console.error(e)
