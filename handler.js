@@ -55,7 +55,7 @@ export async function handler(chatUpdate) {
                 if (!('banned' in user)) user.banned = false
                 if (!('level' in user)) user.level = 0
                 if (!('premium' in user)) user.premium = false
-                if (!('firstchat' in user)) user.firstchat = false
+                if (!('firstchat' in user)) user.firstchat = true
                 if (!isNumber(user.premiumTime)) user.premiumTime = 0
                 if (!('role' in user)) user.role = ''
                 if (!isNumber(user.joincount)) user.joincount = 3
@@ -80,7 +80,7 @@ export async function handler(chatUpdate) {
                     level: 0,
                     premium: false,
                     premiumTime: 0,
-                    firstchat: false,
+                    firstchat: true,
                     role: '',
                     joincount: 3,
                     call: 0,

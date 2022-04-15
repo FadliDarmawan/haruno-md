@@ -6,8 +6,8 @@ let handler = async (m, { conn }) => {
     if (!canLevelUp(user.level, user.exp, global.multiplier)) {
         let { min, xp, max } = xpRange(user.level, global.multiplier)
         throw `
-Level mu: ${user.level}
-Kurang: ${max - user.exp}* lagi.
+Level mu: *${user.level}*
+Kurang: *${max - user.exp}* lagi.
 `.trim()
     }
     let before = user.level * 1
