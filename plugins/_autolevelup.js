@@ -1,5 +1,5 @@
 import { canLevelUp } from '../lib/levelling.js'
-export function before(m) {
+export async function before(m) {
     let who = m.sender
     let user = global.db.data.users[who]
     if (!user.autolevelup)
