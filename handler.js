@@ -82,7 +82,7 @@ export async function handler(chatUpdate) {
                     premiumTime: 0,
                     firstchat: false,
                     role: '',
-                    joincount: 0,
+                    joincount: 3,
                     call: 0,
                     pc: 0,
                     reward: 0,
