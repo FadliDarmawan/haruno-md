@@ -1,5 +1,3 @@
-import { readFileSync } from 'fs'
-import fetch from 'node-fetch'
 import { sticker } from '../lib/sticker.js'
 let handler = m => m
 
@@ -69,7 +67,7 @@ Pembayaran bisa melalui: Gopay, Dana, OVO, Pulsa (XL)
             await global.db.write()
             setting.backupDB = new Date() * 1
             this.reply(global.owner[0] + '@s.whatsapp.net', `Database: ${date}`, null)
-            this.sendFile(global.owner[0] + '@s.whatsapp.net', readFileSync('./database.json'), 'database.json', '', 0, 0, { mimetype: 'application/json' })
+            this.sendFile(global.owner[0] + '@s.whatsapp.net', './database.json', 'database.json', '', 0, 0, { mimetype: 'application/json' })
         }
     }
 }
