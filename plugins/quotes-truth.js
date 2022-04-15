@@ -1,6 +1,6 @@
 import { truth } from '@bochilteam/scraper'
 
-let handler = async (m, { conn, usedPrefix }) => conn.sendButton(m.chat, await truth(), author, [
+let handler = async (m, { conn, usedPrefix }) => conn.sendButton(m.chat, await truth(), watermark, [
     ['Truth', `${usedPrefix}truth`],
     ['Dare', `${usedPrefix}dare`]
 ], m)

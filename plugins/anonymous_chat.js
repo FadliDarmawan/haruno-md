@@ -34,7 +34,7 @@ async function handler(m, { command }) {
                         return who === this.a ? this.b : who === this.b ? this.a : ''
                     },
                 }
-                await this.sendButton(m.chat, 'Menunggu partner...', author, null, [['Keluar', `.leave`]], m)
+                await this.sendButton(m.chat, 'Menunggu partner...', watermark, null, [['Keluar', `.leave`]], m)
             }
             break
         }

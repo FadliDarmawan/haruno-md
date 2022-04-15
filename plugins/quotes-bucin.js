@@ -1,4 +1,4 @@
-let handler = async (m, { conn, usedPrefix }) => conn.sendButton(m.chat, `“${bucin.getRandom()}”`, author, ['Bucin', `${usedPrefix}bucin`], m)
+let handler = async (m, { conn, usedPrefix }) => conn.sendButton(m.chat, `“${bucin.getRandom()}”`, watermark, ['Bucin', `${usedPrefix}bucin`], m)
 
 handler.help = ['bucin']
 handler.tags = ['quotes']

@@ -74,10 +74,10 @@ Room ID: ${room.id}
             room[room.game._currentTurn ^ isSurrender ? 'x' : 'o'] = m.chat
         const btn = isTie ? ['TicTacToe', '/ttt'] : ['Nyerah', 'nyerah']
         if (room.x !== room.o)
-            await this.sendButton(room.x, str, author, btn, m, {
+            await this.sendButton(room.x, str, watermark, btn, m, {
                 mentions: this.parseMention(str)
             })
-        await this.sendButton(room.o, str, author, btn, m, {
+        await this.sendButton(room.o, str, watermark, btn, m, {
             mentions: this.parseMention(str)
         })
         if (isTie || isWin) {
