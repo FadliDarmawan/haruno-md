@@ -8,5 +8,6 @@ handler.help = ['facebbok'].map(v => v + ' <url>')
 handler.tags = ['downloader']
 
 handler.command = /^((facebook|fb)(downloder|dl)?)$/i
+handler.disabled = true
 
 export default handler
