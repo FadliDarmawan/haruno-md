@@ -1,5 +1,5 @@
-import uploadFile from '../lib/uploadFile'
-import uploadImage from '../lib/uploadImage'
+import uploadFile from '../lib/uploadFile.js'
+import uploadImage from '../lib/uploadImage.js'
 
 let handler = async (m, { usedPrefix, command }) => {
   let q = m.quoted ? m.quoted : m
