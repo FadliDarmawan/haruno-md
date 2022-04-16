@@ -440,9 +440,9 @@ function clockString(ms) {
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
 }
 
-async function ucapan() {
-  const time = await moment.tz('Asia/Jakarta').format('HH')
-  res = "Selamat dinihari"
+function ucapan() {
+  const time = moment.tz('Asia/Jakarta').format('HH')
+  let res = "Selamat dinihari"
   if (time >= 4) { 
     res = "Ohayou!"
   }
@@ -453,7 +453,7 @@ async function ucapan() {
     res = "Konnichiwa!"
   }
   if (time >= 18) {
-      res = "Konbanwa!"
+    res = "Konbanwa!"
   }
   return res
 }
