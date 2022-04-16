@@ -1,47 +1,19 @@
-import { servers, yta, ytv } from '../lib/y2mate.js'
+/*
 import yts from 'yt-search'
-import fetch from'node-fetch'
-let handler = async (m, { conn, command, text, usedPrefix }) => {
-  let [t, o] = text.split`,`
-  if (!t) throw `Harap masukkan query!\n\nContoh: ${usedPrefix + command} yanagi nagi one's hope`
-  let chat = global.db.data.chats[m.chat]
-  let results = await yts(t)
-  let vid = results.all.find(video => video.seconds < 3600)
-  if (!vid) throw 'Konten Tidak ditemukan'
-  let isVideo = /2$/.test(command)
-  let yt = false
-  let yt2 = false
-  let usedServer = servers[0]
-  for (let i in servers) {
-    let server = servers[i]
-    try {
-      yt = await yta(vid.url, server)
-      yt2 = await ytv(vid.url, server)
-      usedServer = server
-      break
-    } catch (e) {
-      m.reply(`Server ${server} error!${servers.length >= i + 1 ? '' : '\nTrying another server...'}`)
-    }
-  }
-  if (yt === false) throw 'No songs found. Try another keyword or as possible including song title and artist name!'
-  if (yt2 === false) throw 'No songs found. Try another keyword or as possible including song title and artist name!'
-  let { dl_link, thumb, title, filesize, filesizeF } = yt
-  let th = await(await fetch(image)).buffer()
-  await conn.reply(m.chat, `- Requested by @${m.sender.split`@`[0]}`, m, { thumbnail: th, contextInfo: { 
-    mentionedJid: [m.sender],
-    externalAdReply: {
-       sourceUrl: 'https://youtu.be/-tKVN2mAKRI',
-       title: 'Now playing',
-       body: title,
-       thumbnailUrl: thumb
-     }
-   }})
-    await conn.sendFile(m.chat, dl_link, `${title}` + '.mp3', null, m)
+import fetch from 'node-fetch'
+
+import { 
+  youtubedl,
+  youtubedlv2 
+} from '@bochilteam/scraper'
+
+let handler = async(m, { conn, usedPrefix, text, command }) => {
+  if (!text) throw `Masukkan query yang ingin di play.\n\nContoh: ${usedPrefix + command} stella-rium kano`
+  let result = await yts(text)
+  let url = result.all[0].url
+  let title = result.all[0].title
+  let thumbnail = result.all[0].thumbnail
+  const yt = await youtubedl(url).catch(async () => await  youtubedlv2(url))
+const dl_url = await yt.video['240p'].download()
 }
-handler.help = ['play'].map(v => v + ' <pencarian>')
-handler.tags = ['downloader']
-handler.command = /^(p|play)$/i
-
-handler.exp = 0
-
-export default handler
+*/

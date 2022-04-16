@@ -112,26 +112,26 @@ export async function handler(chatUpdate) {
                 if (!('viewonce' in chat)) chat.viewonce = true
                 if (!('nsfw' in chat)) chat.nsfw = false
             } else
-                global.db.data.chats[m.chat] = {
-                    isBanned: false,
-                    welcome: true,
-                    detect: true,
-                    sWelcome: '',
-                    sBye: '',
-                    sPromote: '',
-                    sDemote: '',
-                    antiLink: true,
-                    autoread: false,
-                    broadcast: true,
-                    delete: true,
-                    desc: true,
-                    getmsg: false,
-                    expired: 0,
-                    stiker: false,
-                    viewonce: true,
-                    nsfw: true,
-                    badword: false,
-                }
+            global.db.data.chats[m.chat] = {
+                isBanned: false,
+                welcome: true,
+                detect: true,
+                sWelcome: '',
+                sBye: '',
+                sPromote: '',
+                sDemote: '',
+                antiLink: true,
+                autoread: false,
+                broadcast: true,
+                delete: true,
+                desc: true,
+                getmsg: false,
+                expired: 0,
+                stiker: false,
+                viewonce: true,
+                nsfw: true,
+                badword: false,
+            }
             let settings = global.db.data.settings[this.user.jid]
             if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
             if (settings) {

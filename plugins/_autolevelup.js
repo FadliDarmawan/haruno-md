@@ -1,3 +1,4 @@
+/*
 import { canLevelUp } from '../lib/levelling.js'
 export async function before(m) {
     let who = m.sender
@@ -25,3 +26,4 @@ export async function before(m) {
         }
     }
 }
+*/
