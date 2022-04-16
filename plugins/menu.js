@@ -118,6 +118,23 @@ let handler = async (m, { conn, usedPrefix: _p, args, command, __dirname }) => {
 
 
   try {
+    function ucapan() {
+      const time = moment.tz('Asia/Jakarta').format('HH')
+      res = "Selamat dinihari"
+      if (time >= 4) { 
+        res = "Ohayou!"
+      }
+      if (time > 10) {
+        res = "Konnichiwa!"
+      }
+      if (time >= 15) {
+        res = "Konnichiwa!"
+      }
+      if (time >= 18) {
+          res = "Konbanwa!"
+      }
+      return res
+    }
     let packager = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
     let { exp, limit, level, role, registered } = global.db.data.users[m.sender]
     let { min, xp, max } = xpRange(level, global.multiplier)
@@ -438,21 +455,4 @@ function clockString(ms) {
   let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
-}
-function ucapan() {
-  const time = moment.tz('Asia/Jakarta').format('HH')
-  res = "Selamat dinihari"
-  if (time >= 4) {
-    res = "Ohayou!"
-  }
-  if (time > 10) {
-    res = "Konnichiwa"
-  }
-  if (time >= 15) {
-    res = "Konnichiwa"
-  }
-  if (time >= 18) {
-    res = "Konbanwa"
-  }
-  return res
 }

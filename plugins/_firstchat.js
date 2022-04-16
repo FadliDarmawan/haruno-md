@@ -11,6 +11,23 @@ export async function all(m) {
     if (!user.firstchat) return
     if (db.data.settings.groupOnly) return
     let name = conn.getName(m.sender)
+    function ucapan() {
+        const time = moment.tz('Asia/Jakarta').format('HH')
+        res = "Selamat dinihari"
+        if (time >= 4) { 
+            res = "Ohayou!"
+        }
+        if (time > 10) {
+            res = "Konnichiwa!"
+        }
+        if (time >= 15) {
+            res = "Konnichiwa!"
+        }
+        if (time >= 18) {
+            res = "Konbanwa!"
+        }
+        return res
+    }
     let teks = `
 *Hi ${name}, ${ucapan()}*
 Perkenalkan aku adalah Haruno bot!
@@ -49,21 +66,4 @@ Terimakasih!
     }
     await this.sendMessage(m.chat, message, { quoted: m })
     user.firstchat = false
-}
-function ucapan() {
-    const time = moment.tz('Asia/Jakarta').format('HH')
-    res = "Selamat dinihari"
-    if (time >= 4) { 
-        res = "Ohayou!"
-    }
-    if (time > 10) {
-        res = "Konnichiwa!"
-    }
-    if (time >= 15) {
-        res = "Konnichiwa!"
-    }
-    if (time >= 18) {
-        res = "Konbanwa!"
-    }
-    return res
 }
