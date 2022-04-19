@@ -1,4 +1,4 @@
-console.log('Starting the Hiroshi')
+console.log('Starting the Haruno')
 
 import { join, dirname } from 'path'
 import { createRequire } from "module";
@@ -16,15 +16,15 @@ const { name, author } = require(join(__dirname, './package.json')) // https://w
 const { say } = cfonts
 const rl = createInterface(process.stdin, process.stdout)
 
-say('Hiroshi', {
+say('Haruno', {
   font: 'block',
   align: 'center',
-  colors: ['#ffd9e5'] 
+  colors: ['#a8c3bc'] 
 })
 say(`'${name}' By @${author.name || author}`, {
   font: 'console',
   align: 'center',
-  colors: ['#ffd9e5']
+  colors: ['#a8c3bc']
 })
 
 var isRunning = false
@@ -39,7 +39,7 @@ function start(file) {
   say([process.argv[0], ...args].join(' '), {
     font: 'console',
     align: 'center',
-    colors: ['#ffd9e5']
+    colors: ['#a8c3bc']
   })
   setupMaster({
     exec: args[0],

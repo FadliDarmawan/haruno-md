@@ -27,10 +27,10 @@ global.APIKeys = { // APIKey Here
 }
 
 // Sticker WM
-global.packname = 'Hiroshi'
+global.packname = 'Haruno'
 global.author = 'Fadli'
 global.image = 'https://telegra.ph/file/2eb7da4b4df70aa35350d.jpg'
-global.watermark = '© Hiroshi'
+global.watermark = '© Haruno'
 global.wait = '「 ⏱️ 」Harap tunggu...'
 global.gambar = 'https://telegra.ph/file/a2644cbdc76476f66bd17.jpg'
 

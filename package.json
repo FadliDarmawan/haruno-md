@@ -1,6 +1,6 @@
 {
-    "name": "hiroshi",
-    "version": "2.0.0",
+    "name": "haruno",
+    "version": "2.0.1",
     "description": "Customizable WhatsApp Bot",
     "main": "index.js",
     "type": "module",
@@ -17,16 +17,16 @@
     "keywords": [
         "termux-whatsapp-bot"
     ],
-    "homepage": "https://github.com/FadliDarmawan/Hiroshi",
+    "homepage": "https://github.com/FadliDarmawan/haruno-md",
     "author": {
         "name": "FadliDarmawan"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/FadliDarmawan/Hiroshi.git"
+        "url": "git+https://github.com/FadliDarmawan/haruno-md.git"
     },
     "bugs": {
-        "url": "https://github.com/FadliDarmawan/Hiroshi/issues"
+        "url": "https://github.com/FadliDarmawan/haruno-md/issues"
     },
     "license": "MIT",
     "dependencies": {

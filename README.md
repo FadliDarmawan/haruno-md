@@ -1,14 +1,18 @@
-# Games-Wabot
-Haruno md version.
-<p align="left">
-	<img src="https://telegra.ph/file/62b64de68cac87d1207a3.jpg" width="35%" style="margin-left: auto;margin-right: auto;display: block;">
-</p>
+# Haruno
+<a href = "https://github.com/FadliDarmawan/haruno-md"><img src = "https://cardivo.vercel.app/api?name=Haruno&description=Haruno,%20Bot%20WhatsApp%20multi%20device.%20Created%20by%20Nurutomo,%20BochilGaming,%20dan%20FadliDarmawan.&image=https://telegra.ph/file/196b5f6f24ccdc6805021.jpg?cb=20200606024545&usqp=CAU&usqp=CAU&backgroundColor=%23ecf0f1&github=FadliDarmawan&pattern=topography&colorPattern=%23eaeaea"/><a>
 
-### Group Official Haruno dan Hiroshi
+### Group Official Haruno
 [![Grup WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/Dqdjz7aSWJj0IyORAsdYom)
 
 ### Deploy to Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/FadliDarmawan/Hiroshi)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/FadliDarmawan/haruno-md)
+
+<p align = "left">
+      <img src = "https://telegra.ph/file/196b5f6f24ccdc6805021.jpg" width="35%" style="margin-left: auto;margin-right: auto;display: block;">>
+</p>
+ ### ```Donate```
+ Donate me!
+<a href="https://saweria.co/FadliStudio"> ```Saweria```
 
 ## FOR TERMUX USER
 ```bash
@@ -18,8 +22,8 @@ pkg install nodejs
 pkg install ffmpeg
 pkg install imagemagick
 pkg install yarn
-git clone https://github.com/FadliDarmawan/Hiroshi
-cd Hiroshi
+git clone https://github.com/FadliDarmawan/haruno-md
+cd haruno-md
 yarn
 npm i -g typescript
 tsc -p ./node_modules/@adiwajshing/baileys
@@ -36,8 +40,8 @@ node .
 * Download And Install ImageMagick [`Click Here`](https://imagemagick.org/script/download.php)
 
 ```bash
-git clone https://github.com/BochilGaming/games-wabot -b multi-device
-cd games-wabot
+git clone https://github.com/BochilGaming/haruno-md
+cd haruno-md
 npm install
 npm update
 npm index
@@ -46,7 +50,7 @@ npm index
 ---------
 
 ## FOR HEROKU USER
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/FadliDarmawan/Hiroshi)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/FadliDarmawan/haruno-md)
 
 ### Installing buildpack
 * heroku/nodejs
@@ -56,7 +60,7 @@ https://github.com/DuckyTeam/heroku-buildpack-imagemagick.git
 
 ### Connecting the Heroku Into Mogodb
 
-Note: You dont have to connect your Hiroshi at Heroku into mongoDB, but Heroku doesn save your ```database.json``` and you will lose your bot data every time you restart or re-run the bot.
+Note: You dont have to connect your Haruno at Heroku into mongoDB, but Heroku doesn save your ```database.json``` and you will lose your bot data every time you restart or re-run the bot.
 
 * Create account and database in mongodb atlas [`watch here`](https://youtu.be/rPqRyYJmx2g)
 * when you already have a database, you just need to take mongourl
