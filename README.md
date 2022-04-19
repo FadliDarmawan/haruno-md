@@ -11,6 +11,7 @@
       <img src = "https://telegra.ph/file/196b5f6f24ccdc6805021.jpg" width="35%" style="margin-left: auto;margin-right: auto;display: block;">>
 </p>
 ## Donate and Support me
+
 Donate me via [`Saweria!`](https://saweria.co/FadliStudio)
 
 ## FOR TERMUX USER
