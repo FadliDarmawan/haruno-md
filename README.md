@@ -4,8 +4,6 @@
 ### Group Official Haruno
 [![Grup WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/Dqdjz7aSWJj0IyORAsdYom)
 
-### Deploy to Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/FadliDarmawan/haruno-md)
 
 <p align = "left">
       <img src = "https://telegra.ph/file/196b5f6f24ccdc6805021.jpg" width="35%" style="margin-left: auto;margin-right: auto;display: block;">
@@ -15,53 +13,24 @@
 
 Donate me via [`Saweria!`](https://saweria.co/FadliStudio)
 
-## FOR TERMUX USER
-```bash
-pkg update && pkg upgrade
-pkg install git
-pkg install nodejs
-pkg install ffmpeg
-pkg install imagemagick
-pkg install yarn
-git clone https://github.com/FadliDarmawan/haruno-md
-cd haruno-md
-yarn
-npm i -g typescript
-tsc -p ./node_modules/@adiwajshing/baileys
+
+## REPLIT NIX USER
+
+```
+npm install
+```
+then choose ```nodejs-16_x.out```
+```
+npm update
+```
+then choose ```nodejs-16_x.out```
+```
 node .
 ```
 
----------
+### Connecting the Replit Into Mogodb
 
-## FOR WINDOWS/VPS/RDP USER
-
-* Download And Install Git [`Click Here`](https://git-scm.com/downloads)
-* Download And Install NodeJS [`Click Here`](https://nodejs.org/en/download)
-* Download And Install FFmpeg [`Click Here`](https://ffmpeg.org/download.html) (**Don't Forget Add FFmpeg to PATH enviroment variables**)
-* Download And Install ImageMagick [`Click Here`](https://imagemagick.org/script/download.php)
-
-```bash
-git clone https://github.com/FadliDarmawan/haruno-md
-cd haruno-md
-npm install
-npm update
-npm index
-```
-
----------
-
-## FOR HEROKU USER
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/FadliDarmawan/haruno-md)
-
-### Installing buildpack
-* heroku/nodejs
-* https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git
-https://github.com/DuckyTeam/heroku-buildpack-imagemagick.git
-
-
-### Connecting the Heroku Into Mogodb
-
-Note: You dont have to connect your Haruno at Heroku into mongoDB, but Heroku doesn save your ```database.json``` and you will lose your bot data every time you restart or re-run the bot.
+Note: You dont have to connect your Haruno at Replit into mongoDB, this is optional.
 
 * Create account and database in mongodb atlas [`watch here`](https://youtu.be/rPqRyYJmx2g)
 * when you already have a database, you just need to take mongourl

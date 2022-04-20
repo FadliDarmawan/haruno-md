@@ -33,6 +33,7 @@ const {
   useSingleFileAuthState,
   DisconnectReason
 } = await import('@adiwajshing/baileys')
+import { createServer } from "http"
 
 const { CONNECTING } = ws
 const { chain } = lodash
@@ -46,6 +47,9 @@ global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.
 global.timestamp = {
   start: new Date
 }
+
+createServer((_, res) => res.end("Uptime!"))
+.listen(8080)
 
 const __dirname = global.__dirname(import.meta.url)
 
