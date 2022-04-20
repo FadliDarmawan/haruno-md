@@ -11,7 +11,7 @@ Role: *${user.role}*
 Daily Reward: *${user.dailyReward}*
 Joincount: *${user.joincount}*
 `.trim()
-    let pp = 'https://telegra.ph/file/39bbded9693c9338069fd.jpg'
+    let pp = 'https://telegra.ph/file/22cacf2d738f3732bf558.png'
     try {
         pp = await this.profilePictureUrl(who, 'image')
     } catch (e) {

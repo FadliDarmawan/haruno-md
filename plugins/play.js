@@ -1,19 +1,39 @@
-/*
 import yts from 'yt-search'
 import fetch from 'node-fetch'
-
-import { 
-  youtubedl,
-  youtubedlv2 
-} from '@bochilteam/scraper'
-
+import { youtubedl, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper';
 let handler = async(m, { conn, usedPrefix, text, command }) => {
-  if (!text) throw `Masukkan query yang ingin di play.\n\nContoh: ${usedPrefix + command} stella-rium kano`
-  let result = await yts(text)
-  let url = result.all[0].url
-  let title = result.all[0].title
-  let thumbnail = result.all[0].thumbnail
-  const yt = await youtubedl(url).catch(async () => await  youtubedlv2(url))
-const dl_url = await yt.video['240p'].download()
+    let user = m.sender
+    let name = conn.getName(user)
+    if (!text) throw `Harap masukkan query!\n\nContoh: ${usedPrefix + command} yanagi nagi one's hope`
+    let results = await yts(text)
+    let vid = results.all.find(video => video.seconds < 3600)
+    if (!vid) throw 'Konten Tidak ditemukan'
+    const { thumbnail, audio: _audio, title } = await youtubedl(vid.url).catch(async _ => await youtubedlv2(vid.url)).catch(async _ => await youtubedlv3(vid.url))
+    let audio, source, res, link, lastError
+    for (let i in _audio) {
+        try {
+            audio = _audio[i]
+            link = await audio.download()
+            if (link) res = await fetch(link)
+            if (res) source = await res.arrayBuffer()
+            if (source instanceof ArrayBuffer) break
+        } catch (e) {
+            audio = link = source = null
+            lastError = e
+        }
+    }
+    if ((!(source instanceof ArrayBuffer) || !link || !res.ok) && !isLimit) throw 'Error: ' + (lastError || 'Can\'t download audio')
+    await conn.reply(m.chat, `Requested by ${name}`, m, { contextInfo: {
+        externalAdReply: {
+            sourceUrl: vid.url,
+            title: title,
+            body: 'Haruno',
+            thumbnailUrl: thumbnail
+        }
+    }})
+    await conn.sendFile(m.chat, source, title + '.mp3', null, m, null, { mimetype: 'audio/mp4' })
 }
-*/
+handler.command = /^(play|p)$/i
+handler.tags = ['downloader']
+handler.help = ['play']
+export default handler

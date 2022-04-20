@@ -41,7 +41,7 @@ node .
 * Download And Install ImageMagick [`Click Here`](https://imagemagick.org/script/download.php)
 
 ```bash
-git clone https://github.com/BochilGaming/haruno-md
+git clone https://github.com/FadliDarmawan/haruno-md
 cd haruno-md
 npm install
 npm update

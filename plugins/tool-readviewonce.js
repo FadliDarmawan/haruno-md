@@ -1,5 +1,5 @@
 let handler = async (m, { conn }) => {
-    if (!m.quoted) throw 'where\'s message?'
+    if (!m.quoted) throw 'Reply pesan.'
     if (m.quoted.mtype !== 'viewOnceMessage') throw 'Itu bukan pesan viewOnce'
     const msg = await conn.loadMessage(m.quoted.id)
     if (!msg) throw 'can\'t open message!'

@@ -193,7 +193,15 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       chat.viewonce = isEnable
       break
-
+    case 'nsfw':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          dfail('admin', m, conn)
+          throw false
+        }
+      }
+      chat.nsfw = isEnable
+      break
     //owner
     case 'backup':
       isAll = true

@@ -34,10 +34,11 @@ Filesize: ${audio.fileSizeH}
 Judul: ${title}
 Filesize: ${audio.fileSizeH}
 `.trim(), m, null, {
+    mimetype: 'audio/mp4',
     asDocument: chat.useDocument
   })
 }
-handler.help = ['mp3', 'a'].map(v => 'yt' + v + ` <url> <without message>`)
+handler.help = ['mp3', 'a'].map(v => 'yt' + v + ` <url>`)
 handler.tags = ['downloader']
 handler.command = /^yt(a|mp3)$/i
 

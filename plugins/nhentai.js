@@ -16,6 +16,7 @@ let handler = async(m, { conn, usedPrefix, command, args }) => {
 	let count = 0
 	let ResultPdf = []
 	let doujin = await nhentai.getDoujin(args[0])
+	let data = db.data.users[m.sender].bookmark
 	let title = doujin.title.default
 	let native = doujin.title.native
 	let details = doujin.details
@@ -39,32 +40,59 @@ Category: ${categories}
 Favorited: ${doujin.favourites}
 `.trim()
 	if(!args[1]) {
-		const message = {
-			image: { url: image},
-			jpegThumbnail: await(await fetch(cover)).buffer(),
-			caption: capton,
-			footer: watermark,
-			templateButtons: [
-				{
-					urlButton: {
-						displayText: 'Read online',
-						url: `https://hiken.xyz/v/${args[0]}`
+		if (data.includes(args[0])) {
+			const message = {
+				image: { url: image},
+				jpegThumbnail: await(await fetch(cover)).buffer(),
+				caption: capton,
+				footer: watermark,
+				templateButtons: [
+					{
+						urlButton: {
+							displayText: 'Read online',
+							url: `https://hiken.xyz/v/${args[0]}`
+						}
+					}, {
+						quickReplyButton: {
+							displayText: 'Download',
+							id: `${usedPrefix + command} ${args[0]} -d`
+						}
+					}, {
+						quickReplyButton: {
+							displayText: 'Remove bookmark',
+							id: `${usedPrefix + command} ${args[0]} -r`
+						}
 					}
-				}, {
-					quickReplyButton: {
-						displayText: 'Download',
-						id: `${usedPrefix + command} ${args[0]} -d`
+				]
+			}
+			await conn.sendMessage(m.chat, message, { quoted: m })
+		} else {
+			const message = {
+				image: { url: image},
+				jpegThumbnail: await(await fetch(cover)).buffer(),
+				caption: capton,
+				footer: watermark,
+				templateButtons: [
+					{
+						urlButton: {
+							displayText: 'Read online',
+							url: `https://hiken.xyz/v/${args[0]}`
+						}
+					}, {
+						quickReplyButton: {
+							displayText: 'Download',
+							id: `${usedPrefix + command} ${args[0]} -d`
+						}
+					}, {
+						quickReplyButton: {
+							displayText: 'Add bookmark',
+							id: `${usedPrefix + command} ${args[0]} -b`
+						}
 					}
-				}, {
-					quickReplyButton: {
-						displayText: 'Add bookmark',
-						id: `${usedPrefix + command} ${args[0]} -b`
-					}
-				}
-			]
+				]
+			}
+			await conn.sendMessage(m.chat, message, { quoted: m })
 		}
-		await conn.sendMessage(m.chat, message, { quoted: m })
-	await conn.send2ButtonImg(m.chat, await(await fetch(cover)).buffer(), capton, watermark, 'Download PDF', `${usedPrefix + command} ${args[0]} -d`, 'Read online', `${usedPrefix + command} ${args[0]} -o`, m)
 	} else if(args[1] === '-d') {
 		m.reply('Sedang mengunduh data.\nHarap tunggu sekitar 1~5 menit...')
 		for (let index = 0; index < array_page.length; index++) {
@@ -89,12 +117,19 @@ Favorited: ${doujin.favourites}
 	await conn.sendFile(m.chat, readFileSync(`./nhentai/${title}.pdf`), `${title}.pdf`, '', m, false, { asDocument: true, thumbnail: thumbnail })
 		.then(() => unlinkSync(`./nhentai/${title}.pdf`))
 	} else if (args[1] === '-b') {
+		const bookmark = db.data.users[m.sender].bookmark
+		if (bookmark.includes(args[0])) throw `Kode ${args[0]} sudah ada pada list bookmark mu.`
 		db.data.users[m.sender].bookmark += args[0]
-		m.reply(`Silahkan buka link untuk membaca secara online.\nhttps://hiken.xyz/v/${args[0]}`)
+		m.reply(`Kode ${args[0]} berhasil disimpan pada bookmark mu.\n\nKetik ${usedPrefix}bookmark untuk melihat list.`)
+	} else if (args[1] === '-r') {
+		const bookmark = db.data.users[m.sender].bookmark
+		if (!bookmark.includes(args[0])) throw `Kode ${args[0]} tidak ada pada list bookmark mu.`
+		db.data.users[m.sender].bookmark -= args[0]
+		m.reply(`Kode ${args[0]} berhasil diremove pada bookmark mu.\n\nKetik ${usedPrefix}bookmark untuk melihat list.`)
 	}
 }
 
 handler.command = /^nhentai|doujin$/i
 handler.help = ['nhentai <kode>']
-handler.tags = ['downloader']
+handler.tags = ['anime']
 module.exports = handler

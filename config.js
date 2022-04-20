@@ -29,10 +29,10 @@ global.APIKeys = { // APIKey Here
 // Sticker WM
 global.packname = 'Haruno'
 global.author = 'Fadli'
-global.image = 'https://telegra.ph/file/2eb7da4b4df70aa35350d.jpg'
+global.image = 'https://telegra.ph/file/22cacf2d738f3732bf558.png'
 global.watermark = '© Haruno'
 global.wait = '「 ⏱️ 」Harap tunggu...'
-global.gambar = 'https://telegra.ph/file/a2644cbdc76476f66bd17.jpg'
+global.gambar = 'https://telegra.ph/file/22cacf2d738f3732bf558.png'
 
 global.multiplier = 40 // The higher, The harder levelup
 

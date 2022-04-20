@@ -131,7 +131,7 @@ export async function handler(chatUpdate) {
                 expired: 0,
                 stiker: false,
                 viewonce: true,
-                nsfw: true,
+                nsfw: false,
                 badword: false,
             }
             let settings = global.db.data.settings[this.user.jid]
