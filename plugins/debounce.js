@@ -11,4 +11,4 @@ handler.help = ['debounce' + (process.send ? '' : ' (Tidak Bekerja)')]
 handler.tags = ['host']
 handler.command = /^debounce$/i
 handler.owner = true
-module.exports = handler
+export default handler
