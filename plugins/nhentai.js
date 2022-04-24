@@ -132,4 +132,4 @@ Favorited: ${doujin.favourites}
 handler.command = /^nhentai|doujin$/i
 handler.help = ['nhentai <kode>']
 handler.tags = ['anime']
-module.exports = handler
+export default handler

@@ -6,7 +6,7 @@ export async function all(m) {
     if (!chats.expired)
         return !0
     if (+new Date() > chats.expired) {
-        await this.sendButton(m.chat, 'Selamat tinggal! Sayounara', watermark, await(await fetch(image)).buffer(), ['Sayounara', '.'], m)
+        await this.sendButton(m.chat, 'Selamat tinggal! Sayounara', watermark, await(await fetch(image)).buffer(), ['Sayounara', '.'])
         await this.groupLeave(m.chat)
         chats.expired = null
     }
