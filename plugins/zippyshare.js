@@ -1,4 +1,4 @@
-import extract from 'zs-extract'
+import { extract } from 'zs-extract'
 import fetch from 'node-fetch'
 let handler = async(m, { conn, usedPrefix, text, command }) => {
     if (!text) throw `Harap masukkan URL Zippyshare yang ingin di download!\n\nContoh: ${usedPrefix + command} https://www96.zippyshare.com/v/Sw73EZBH/file.html`

@@ -42,7 +42,7 @@ Favorited: ${doujin.favourites}
 	if(!args[1]) {
 		if (data.includes(args[0])) {
 			const message = {
-				image: { url: image},
+				image: { url: cover },
 				jpegThumbnail: await(await fetch(cover)).buffer(),
 				caption: capton,
 				footer: watermark,
@@ -68,7 +68,7 @@ Favorited: ${doujin.favourites}
 			await conn.sendMessage(m.chat, message, { quoted: m })
 		} else {
 			const message = {
-				image: { url: image},
+				image: { url: cover },
 				jpegThumbnail: await(await fetch(cover)).buffer(),
 				caption: capton,
 				footer: watermark,
@@ -117,14 +117,15 @@ Favorited: ${doujin.favourites}
 	await conn.sendFile(m.chat, readFileSync(`./nhentai/${title}.pdf`), `${title}.pdf`, '', m, false, { asDocument: true, thumbnail: thumbnail })
 		.then(() => unlinkSync(`./nhentai/${title}.pdf`))
 	} else if (args[1] === '-b') {
-		const bookmark = db.data.users[m.sender].bookmark
-		if (bookmark.includes(args[0])) throw `Kode ${args[0]} sudah ada pada list bookmark mu.`
-		db.data.users[m.sender].bookmark += args[0]
+		if (data.includes(args[0])) throw `Kode ${args[0]} sudah ada pada list bookmark mu.`
+		let push = data.push(args[0])
+		data = push
 		m.reply(`Kode ${args[0]} berhasil disimpan pada bookmark mu.\n\nKetik ${usedPrefix}bookmark untuk melihat list.`)
 	} else if (args[1] === '-r') {
-		const bookmark = db.data.users[m.sender].bookmark
-		if (!bookmark.includes(args[0])) throw `Kode ${args[0]} tidak ada pada list bookmark mu.`
-		db.data.users[m.sender].bookmark -= args[0]
+		if (!data.includes(args[0])) throw `Kode ${args[0]} tidak ada pada list bookmark mu.`
+		let ha = data.indexOf(args[0])
+		let de = await json.splice(ha, 1)
+		data = de
 		m.reply(`Kode ${args[0]} berhasil diremove pada bookmark mu.\n\nKetik ${usedPrefix}bookmark untuk melihat list.`)
 	}
 }

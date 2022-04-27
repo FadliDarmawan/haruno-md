@@ -1,9 +1,9 @@
 let handler = async(m, { conn, usedPrefix, command }) => {
-    let user = db.data.users[m.sender]
+    let user = db.data.users[m.sender].bookmark
     if (!user.bookmark || user.bookmark == null) throw `Kamu tidak memiliki bookmark code.\n\nUntuk menambahkan bookmark code silahkan ketik ${usedPrefix}nhentai <kode>\nContoh: ${usedPrefix}nhentai 274431`
     let caption = `
 ┌〔 Bookmark 〕
-${user.bookmark.map(v => '├ ' + v).join`\n`}
+${user.map(v => '├ ' + v).join`\n`}
 └────
 
 Untuk menambahkan atau meremove silahkan ketik ${usedPrefix}nhentai <kode yang ingin di remove/add>
