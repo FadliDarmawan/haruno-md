@@ -12,3 +12,4 @@ let handler = async(m, { conn }) => {
 handler.tags = ['anime']
 handler.help = ['eroyuri']
 handler.command = /^eroyuri$/i
+export default handler

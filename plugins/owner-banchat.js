@@ -1,4 +1,4 @@
-let handler = async (m, { isOwner }) => {
+let handler = async (m, { isOwner, text, isAdmin }) => {
     let who 
     if (isOwner) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text ? text.replace(/[^0-9]/g, '') + '@s.whatsapp.net' : m.chat
     else who = m.chat
@@ -10,9 +10,9 @@ let handler = async (m, { isOwner }) => {
         throw `ID tidak ada didatabase.`
     }
 }
-handler.help = ['obanchat']
+handler.help = ['oban']
 handler.tags = ['owner']
-handler.command = /^obanchat$/i
+handler.command = /^oban$/i
 
 handler.owner = true
 

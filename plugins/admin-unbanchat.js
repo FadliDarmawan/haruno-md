@@ -1,11 +1,11 @@
 let handler = async (m) => {
-    global.db.data.chats[m.chat].isBanned = false
     let name = conn.getName(m.chat)
     m.reply(`*${conn.user.name}* aktif aktif di chat ${name}`)
+    global.db.data.chats[m.chat].isBanned = false
 }
-handler.help = ['unbanchat']
+handler.help = ['unban']
 handler.tags = ['admin', 'group']
-handler.command = /^unbanchat$/i
+handler.command = /^unban$/i
 
 handler.admin = true
 handler.group = true
