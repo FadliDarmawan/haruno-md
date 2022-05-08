@@ -59,7 +59,7 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.premiumTime)) user.premiumTime = 0
                 if (!('role' in user)) user.role = ''
                 if (!('bookmark' in user)) user.bookmark = []
-                if (!isNumber(user.joincount)) user.joincount = 3
+                if (!isNumber(user.joincount)) user.joincount = 1
                 if (!isNumber(user.call)) user.call = 0
                 if (!isNumber(user.pc)) user.pc = 0
                 if (!isNumber(user.reward)) user.reward = 0
@@ -84,7 +84,7 @@ export async function handler(chatUpdate) {
                     firstchat: true,
                     role: '',
                     bookmark: [],
-                    joincount: 3,
+                    joincount: 1,
                     call: 0,
                     pc: 0,
                     reward: 0,

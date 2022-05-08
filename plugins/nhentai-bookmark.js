@@ -8,13 +8,7 @@ ${user.map(v => '├ ' + v).join`\n`}
 
 Untuk menambahkan atau meremove silahkan ketik ${usedPrefix}nhentai <kode yang ingin di remove/add>
 `.trim()
-    await conn.sendFile(m.chat, caption, m, { contextInfo: {
-        externalAdReply: {
-            sourceUrl: 'https://youtu.be/JktyyWr1N6I',
-            title: 'Bookmark list',
-            thumbnailUrl: image
-        }
-    }})
+    await conn.reply(m.chat, caption, m)
 }
 handler.tags = ['anime']
 handler.command = /^bookmark$/i

@@ -5,10 +5,9 @@ let handler = async(m, { conn, usedPrefix, text, command }) => {
     try {
         let info = await extract(text)
         console.log(info)
+        await conn.sendFile(m.chat, info.download, info.filename, null, m, null, { asDocument: true})
     } catch (e) {
         throw `Error`
-    } finally {
-        await conn.sendFile(m.chat, info.download, info.sendFile, null, m, null, { asDocument: true})
     }
 }
 handler.tags = ['downloader']

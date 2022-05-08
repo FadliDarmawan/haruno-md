@@ -16,14 +16,7 @@ Joincount: *${user.joincount}*
         pp = await this.profilePictureUrl(who, 'image')
     } catch (e) {
     } finally {
-      await conn.reply(m.chat, caption, m, { contextInfo: {
-        externalAdReply: {
-            sourceUrl: 'https://youtu.be/-tKVN2mAKRI',
-            title: user.name,
-            body: 'Haruno',
-            thumbnailUrl: pp
-        }
-    }})
+      await conn.sendFile(m.chat, pp, 'pp.jpg', caption, m)
   }
 }
 handler.help = ['my [@62XXXX]']

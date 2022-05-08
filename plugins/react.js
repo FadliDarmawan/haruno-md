@@ -1,5 +1,6 @@
 let handler = async(m, { conn, usedPrefix, command, args }) => {
     if (!agrs[0]) throw `Masukkan emoticon nya.\n\nContoh: ${usedPrefix + command} 🇨🇳`
+    if (!m.quoted) throw `Reply salah satu pesan.`
     const reactionMessage = {
         react: {
             text: args[0],

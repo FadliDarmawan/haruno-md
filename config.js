@@ -2,10 +2,7 @@ import { watchFile, unwatchFile } from 'fs'
 import chalk from 'chalk'
 import { fileURLToPath } from 'url'
 
-global.owner = [
-  ['628112958665', 'Fadli']
-  // [number, dia creator/owner?, dia developer?]
-] // Put your number here
+global.owner = ['628112958665','6288215569001','628998512588'] // Put your number here
 global.mods = [] // Want some help?
 global.APIs = { // API Prefix
   // name: 'https://website'

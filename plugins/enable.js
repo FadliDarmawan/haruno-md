@@ -49,7 +49,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       isUser = true
       user.autolevelup = isEnable
       break
-    // group
+      // group
     case 'w':
     case 'welcome':
       if (!m.isGroup) {
