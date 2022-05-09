@@ -97,7 +97,7 @@ Favorited: ${doujin.favourites}
 		m.reply('Sedang mengunduh data.\nHarap tunggu sekitar 1~5 menit...')
 		for (let index = 0; index < array_page.length; index++) {
 			if (!existsSync('./nhentai')) mkdirSync('./nhentai')
-			let image_name = './nhentai/' + title + index + '.jpg'
+			let image_name = './nhentai/' + title + index + '.PNG'
 			await new Promise((resolve) => request(array_page[index]).pipe(createWriteStream(image_name)).on('finish', resolve))
 			console.log(array_page[index])
 			ResultPdf.push(image_name)
@@ -110,7 +110,7 @@ Favorited: ${doujin.favourites}
 		)
 
 		for (let index = 0; index < array_page.length; index++) {
-			unlinkSync('./nhentai/' + title + index + '.jpg')
+			unlinkSync('./nhentai/' + title + index + '.PNG')
 		}
 	m.reply('Sedang mengirim file PDF...')
 	let thumbnail = await (await fetch(doujin.cover)).buffer()
