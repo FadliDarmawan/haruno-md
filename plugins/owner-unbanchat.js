@@ -5,7 +5,7 @@ let handler = async (m, { isOwner, text, isAdmin }) => {
     try {
         if (who.endsWith('g.us')) db.data.chats[who].isBanned = false
         else db.data.users[who].banned = false
-        m.reply(`${conn.user.name} sekarang aktif dichat ${conn.getName(who) == undefined ? 'ini' : conn.getName(who)}.`)
+        await m.reply(`${conn.user.name} sekarang aktif dichat ${conn.getName(who) == undefined ? 'ini' : conn.getName(who)}.`)
     } catch (e) {
         throw `ID tidak ada didatabase.`
     }

@@ -124,7 +124,7 @@ Favorited: ${doujin.favourites}
 	} else if (args[1] === '-r') {
 		if (!data.includes(args[0])) throw `Kode ${args[0]} tidak ada pada list bookmark mu.`
 		let ha = data.indexOf(args[0])
-		let de = await json.splice(ha, 1)
+		let de = await data.splice(ha, 1)
 		data = de
 		m.reply(`Kode ${args[0]} berhasil diremove pada bookmark mu.\n\nKetik ${usedPrefix}bookmark untuk melihat list.`)
 	}

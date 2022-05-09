@@ -1,6 +1,6 @@
 let handler = async (m) => {
     let name = conn.getName(m.chat)
-    m.reply(`*${conn.user.name}* tidak aktif di chat ${name}`)
+    await m.reply(`*${conn.user.name}* tidak aktif di chat ${name}`)
     db.data.chats[m.chat].isBanned = true
 }
 handler.help = ['banchat']

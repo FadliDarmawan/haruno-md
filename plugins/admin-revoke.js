@@ -6,7 +6,7 @@ let handler = async(m, { conn }) => {
 handler.botAdmin = true
 handler.admin = true
 handler.group = true
-handler.commaand = /^revoke$/i
+handler.command = /^revoke$/i
 handler.help = ['revoke']
 handler.tags = ['admin', 'group']
 export default handler
