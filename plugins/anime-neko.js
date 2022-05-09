@@ -6,7 +6,7 @@ let handler = async(m, { conn }) => {
     await conn.sendButton(m.chat, 'Neko!', watermark, img, [['Neko', '.neko']], m)
 }
 handler.command = /^(neko|nekonime)$/i
-handler.tags = ['internet']
+handler.tags = ['anime']
 handler.help = ['neko']
 
 export default handler

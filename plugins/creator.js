@@ -1,4 +1,3 @@
-import { MessageType } from '@adiwajshing/baileys'
 import PhoneNumber from 'awesome-phonenumber'
 async function handler(m) {
   let name = 'Fadli'
@@ -15,9 +14,7 @@ async function handler(m) {
   number3 = owner[2].replace(/[^0-9]/g, '')
   let njid3 = number3 + '@s.whatsapp.net'
   let onW3 = await this.isOnWhatsApp(njid3) || { isBusiness: false }
-
-  m.reply(`Nomer owner itu *bukan bot*, tapi nomor _*pemilik bot*_\n\nSilahan chat jika ada keperluan.\nChat "P" atau minta save kemungkinan tidak akan di balas, dan -9999 social credit.`)
-  this.sendMessage(m.chat, {
+  let cont = this.sendMessage(m.chat, {
     contacts: [{
       displayname: name, vcard: `
 BEGIN:VCARD
@@ -54,7 +51,8 @@ X-WA-BIZ-DESCRIPTION:${((await this.getBusinessProfile(njid3)).description || ''
 END:VCARD
 `.trim()
     }]
-  }, MessageType.contactsArray, { quoted: m })
+  }, { quoted: m })
+  conn.reply(m.chat, `Nomer owner itu *bukan bot*, tapi nomor _*pemilik bot*_\n\nSilahan chat jika ada keperluan.\nChat "P" atau minta save kemungkinan tidak akan di balas, dan -9999 social credit.`, cont)
 }
 handler.help = ['owner', 'creator']
 handler.tags = ['info']

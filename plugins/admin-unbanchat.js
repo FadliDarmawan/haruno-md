@@ -5,7 +5,7 @@ let handler = async (m) => {
 }
 handler.help = ['unban']
 handler.tags = ['admin', 'group']
-handler.command = /^unban$/i
+handler.command = /^unban|unbanchat$/i
 
 handler.admin = true
 handler.group = true
