@@ -158,6 +158,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command, __dirname }) => {
         setTimeout(resolve, 1000)
       }) * 1000
     }
+    let selectedimage = pic[Math.floor(Math.random() * pic.length)]
     let muptime = clockString(_muptime)
     let uptime = clockString(_uptime)
     let totalreg = Object.keys(global.db.data.users).length
@@ -417,7 +418,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command, __dirname }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    await conn.sendButton(m.chat, text.trim(), watermark, await (await fetch(image)).buffer(), [['Pemilik Bot', `${_p}owner`], ['Donasi', `${_p}donasi`], ['Group Official', '.harunoff']],  m)
+    await conn.sendButton(m.chat, text.trim(), watermark, await (await fetch(selectedimage)).buffer(), [['Pemilik Bot', `${_p}owner`], ['Donasi', `${_p}donasi`], ['Group Official', '.harunoff']],  m)
   }
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)

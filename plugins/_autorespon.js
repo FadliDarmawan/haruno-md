@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs'
 import fetch from 'node-fetch'
-import { sticker } from '../lib/sticker.js'
+let { sticker } = await import('../lib/sticker.js')
 let handler = m => m
 
 export async function all(m, { isBlocked }) {

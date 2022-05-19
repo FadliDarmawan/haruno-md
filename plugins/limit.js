@@ -13,7 +13,7 @@ Joincount: *${user.joincount}*
 `.trim()
     let pp = 'https://telegra.ph/file/22cacf2d738f3732bf558.png'
     try {
-        pp = await this.profilePictureUrl(who, 'image')
+        pp = await conn.profilePictureUrl(who, 'image')
     } catch (e) {
     } finally {
       await conn.sendFile(m.chat, pp, 'pp.jpg', caption, m)
