@@ -132,7 +132,7 @@ const connectionOptions = {
 global.conn = makeWASocket(connectionOptions)
 conn.isInit = false
 
-let whatsappRes = await conn.sendMessage(jid, {text: text})
+let whatsappRes = await conn.sendMessage(owner[0], {text: 'Haruno.'})
 temporaryStore.saveMessage(whatsappRes.key.id, text)
 
 if (!opts['test']) {
