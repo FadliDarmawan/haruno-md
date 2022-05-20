@@ -12,7 +12,8 @@ global.APIs = { // API Prefix
   zahir: 'https://zahirr-web.herokuapp.com',
   zeks: 'https://api.zeks.xyz',
   pencarikode: 'https://pencarikode.xyz',
-  LeysCoder: 'https://leyscoders-api.herokuapp.com'
+  LeysCoder: 'https://leyscoders-api.herokuapp.com',
+  xcod: 'https://api-xcoders.xyz'
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
@@ -20,7 +21,8 @@ global.APIKeys = { // APIKey Here
   'https://zahirr-web.herokuapp.com': 'zahirgans',
   'https://api.zeks.xyz': 'apivinz',
   'https://pencarikode.xyz': 'pais',
-  'https://leyscoders-api.herokuapp.com': 'dappakntlll'
+  'https://leyscoders-api.herokuapp.com': 'dappakntlll',
+  'https://api-xcoders.xyz': 'fJ6TuPtXY3'
 }
 
 // Sticker WM

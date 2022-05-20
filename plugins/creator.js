@@ -11,7 +11,7 @@ async function handler(m) {
   let name3 = 'Rafli'
   let number3 = owner[2].replace(/[^0-9]/g, '')
   let njid3 = number3 + '@s.whatsapp.net'
-  let cont = this.sendMessage(m.chat, {
+  let cont = conn.sendMessage(m.chat, {
     contacts: [{
       displayname: name, contacts: `
 BEGIN:VCARD

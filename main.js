@@ -90,14 +90,49 @@ loadDatabase()
 global.authFile = `${opts._[0] || 'session'}.data.json`
 const { state, saveState } = useSingleFileAuthState(global.authFile)
 
+let messages = []
+function deleteMessage(messageID) {
+    delete messages[messageID]
+}
+function saveMessage(messageID, txt) {
+    messages[messageID] = txt
+}
+function getMessage(messageID) {
+    return messages[messageID]
+
+}
+function clearMessages() {
+    messages = []
+}
+setInterval(clearMessages, 120000)
+export default {
+    getMessage,
+    saveMessage,
+    deleteMessage
+}
+
+const retryMessageHandler = async message => {
+  console.log("Retrying to send the message.")
+  let text = temporaryStore.getMessage(message.id)
+  temporaryStore.deleteMessage(message.id)
+  return {
+      conversation: text
+  }
+}
+
 const connectionOptions = {
   printQRInTerminal: true,
   auth: state,
+  msgRetryCounterMap,
+  getMessage: retryMessageHandler
   // logger: pino({ level: 'trace' })
 }
 
 global.conn = makeWASocket(connectionOptions)
 conn.isInit = false
+
+let whatsappRes = await conn.sendMessage(jid, {text: text})
+temporaryStore.saveMessage(whatsappRes.key.id, text)
 
 if (!opts['test']) {
   setInterval(async () => {
