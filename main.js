@@ -30,6 +30,7 @@ import {
   mongoDBV2
 } from './lib/mongoDB.js';
 const {
+  msgRetryCounterMap,
   useSingleFileAuthState,
   DisconnectReason
 } = await import('@adiwajshing/baileys')
