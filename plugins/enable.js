@@ -302,10 +302,10 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       break
     default:
       if (!/[01]/.test(command)) throw `
-┌「 Daftar opsi 」${isOwner ? '\n' + ow.map(v => '├ ' + v).join`\n` : ''}${m.isGroup ? '\n' + grup.map(v => '├ ' + v).join`\n` : ''}
+${conn.top('Daftar opsi')}${isOwner ? '\n' + ow.map(v => '├ ' + v).join`\n` : ''}${m.isGroup ? '\n' + grup.map(v => '├ ' + v).join`\n` : ''}
 ${us.map(v => '├ ' + v).join`\n`}
 ${ch.map(v => '├ ' + v).join`\n`}
-└────
+${conn.bottom('Haruno')}
 contoh:
 ${usedPrefix}on welcome
 ${usedPrefix}off welcome

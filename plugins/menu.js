@@ -5,13 +5,16 @@ import fetch from 'node-fetch'
 import moment from 'moment-timezone'
 const defaultMenu = {
   before: `
-┌─〔 %me 〕
+┌──「 *%me* 」
 ├ Hai, *%name!*
-└────
+├ %time
+│
+├ Jika ada error atau bug silahkan report.
+└───
 %readmore`.trimStart(),
-  header: '┌─〔 %category 〕',
+  header: '┌──「 %category 」',
   body: '├ %cmd %islimit %isPremium',
-  footer: '└────\n',
+  footer: '└───\n',
   after: ``,
 }
 let handler = async (m, { conn, usedPrefix: _p, args, command, __dirname }) => {
@@ -418,7 +421,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command, __dirname }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    await conn.sendButton(m.chat, text.trim(), watermark, await (await fetch(selectedimage)).buffer(), [['Pemilik Bot', `${_p}owner`], ['Donasi', `${_p}donasi`], ['Group Official', '.harunoff']],  m)
+    await conn.sendButton(m.chat, text.trim(), watermark, await (await fetch(selectedimage)).buffer(), [['Owner', `${_p}owner`], ['Donasi', `${_p}donasi`], ['Group Official', '.harunoff']],  m)
   }
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)

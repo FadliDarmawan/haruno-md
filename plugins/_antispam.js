@@ -8,6 +8,7 @@ export async function all(m) {
             if (this.spam[m.sender].count > 10) {
                 global.db.data.users[m.sender].banned = true
                 m.reply('Kamu dibanned karena spam.')
+                this.sendButton(owner[0] + '@s.whatsapp.net', `@${user.split`@`[0]} dibanned karena spam.`, watermark, false, [['Unban', `.unban ${m.sender}`]])
             }
             this.spam[m.sender].count = 0
             this.spam[m.sender].lastspam = m.messageTimestamp.toNumber()

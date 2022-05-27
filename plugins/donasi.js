@@ -1,12 +1,14 @@
 import fetch from 'node-fetch'
 let handler = async(m, { conn }) => {
     let teks = `
-┌─「 Donasi 」
-├ GoPay: 628112958665
+${conn.top('Donasi')}
+├ Biar bot nya jalan terus hehe
 ├ Dana: 628112958665
 ├ OVO: 628112958665
-├ Pulsa (XL): 6281943265086
-└────`.trim()
+├ GoPay: 628112958665
+├ Pulsa: 6281943265086
+│
+${conn.bottom('Haruno')}`.trim()
     const message = {
         image: { url: image},
         jpegThumbnail: await(await fetch(image)).buffer(),

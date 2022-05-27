@@ -25,29 +25,25 @@ export async function all(m, { isBlocked }) {
 
     // ketika ada yang invite/kirim link grup di chat pribadi
     if ((m.mtype === 'groupInviteMessage' || m.text.startsWith('https://chat') || m.text.startsWith('Buka tautan ini')) && !m.isBaileys && !m.isGroup) {
-        await this.reply(m.chat, `Undang ${conn.user.name} ke Group
-*Trial Free*
-Ketik *.join <link gc>* dan bot akan masuk ke group. setelah 12 jam trial bot akan keluar.
-Note: 1 orang hanya bisa memasukkan bot ke group sebanyak 1 kali.
-*1 Bulan/15.000*
-Hubungi owner jika ingin berlangganan/bertanya/membayar
-Pembayaran bisa melalui: Gopay, Dana, OVO, Pulsa (XL)
-*Permanen/20.000*
-Hubungi owner jika ingin berlangganan/bertanya/membayar
-Note: tergantung slot
-*Premium users/25.000* 
-Menjadi users premium dan anda dapat menggunakan fitur dengan tanpa batasan (tanpa limit) dan beberapa akses fitur khusus user premium.
-Users premium dapat memasukkan bot ke dalam group sebanyak 3 kali, bot akan otomatis keluar dari group setelah 1 bulan(30 hari).
-Silahkan kontak/hubungi owner jika mau mulai menyewa/berlangganan/ada yang mau di tanyakan.
-Pembayaran bisa melalui: Gopay, Dana, OVO, Pulsa (XL)
-`, m, { contextInfo: {
-    externalAdReply: {
-        sourceUrl: 'https://youtu.be/-tKVN2mAKRI',
-        title: 'Undang ke group',
-        body: 'Haruno Bot',
-        thumbnailUrl: gambar
-        }
-    }})
+        await this.reply(m.chat, `${this.top('Add group')}
+├ *Free 1 Hari*
+├ *1 Bulan:* Rp10.000
+│
+├「 Premium 」
+├ *Selamanya*: Rp12.500
+│
+${this.bottom('Haruno')}
+
+${this.top('Pembayaran')}
+├ *Dana:* 628112958665
+├ *OVO:* 628112958665
+├ *GoPay:* 628112958665
+├ *Pulsa:* 6281943265086 (+Rp5k)
+│
+${this.bottom('Haruno')}
+
+*Note:* Pembayaran menggunakan pulsa dikenakan tambahan Rp5.000.`
+, m)
     }
 
     // salam

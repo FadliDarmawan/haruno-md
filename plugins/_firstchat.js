@@ -11,25 +11,8 @@ export async function all(m) {
     if (!user.firstchat) return
     if (db.data.settings.groupOnly) return
     let name = conn.getName(m.sender)
-    function ucapan() {
-        const time = moment.tz('Asia/Jakarta').format('HH')
-        res = "Selamat dinihari"
-        if (time >= 4) { 
-            res = "Ohayou!"
-        }
-        if (time > 10) {
-            res = "Konnichiwa!"
-        }
-        if (time >= 15) {
-            res = "Konnichiwa!"
-        }
-        if (time >= 18) {
-            res = "Konbanwa!"
-        }
-        return res
-    }
     let teks = `
-*Hi ${name}, ${ucapan()}*
+*Hi ${name}, ${this.ucapan()}*
 Perkenalkan aku adalah Haruno bot!
 
 Kamu bisa menggunakan Haruno untuk membuat sticker, mendownload video youtube, facebook, tiktok, instagram, atau hanya sekedar bersenang senang! Fitur selengkapnya tentang Haruno bisa di lihat di *.menu*
