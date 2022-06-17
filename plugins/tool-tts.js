@@ -18,7 +18,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   catch (e) {
     m.reply(e + '')
     text = args.join(' ')
-    if (!text) throw `Use example ${usedPrefix}${command} en hello world`
+    if (!text) throw `Masukkan bahasa dan text yang ingin dijadikan suara.\n\nContoh: ${usedPrefix + command} en My source is that i made it the fuck up`
     res = await tts(text, defaultLang)
   } finally {
     if (res) conn.sendFile(m.chat, res, 'tts.opus', null, m, true)

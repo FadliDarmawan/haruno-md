@@ -1,3 +1,5 @@
+import db from '../lib/database.js'
+
 const roles = {
     /*
     'Role Name': <Minimal Level To Obtain this Role>

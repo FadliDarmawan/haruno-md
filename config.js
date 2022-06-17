@@ -28,7 +28,8 @@ global.APIKeys = { // APIKey Here
 // Sticker WM
 global.packname = 'Haruno'
 global.author = 'Fadli'
-global.image = 'https://telegra.ph/file/22cacf2d738f3732bf558.png'
+global.webfetch = 'https://google.com'
+global.image = 'https://telegra.ph/file/37419ad0bce2a83dc6f5e.jpg'
 global.watermark = '© Haruno'
 global.wait = '「 ⏱️ 」Harap tunggu...'
 global.gambar = 'https://telegra.ph/file/22cacf2d738f3732bf558.png'

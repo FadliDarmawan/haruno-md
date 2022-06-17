@@ -1,0 +1,24 @@
+Haruno version 3.0.0
+
+It's been a year since Haruno bot was born. at 12 July 2021 Kyoitaka (Naruhodo)
+changed into Haruno as we all know now.
+
+First of all i'd like to say Thanks for you all! Haruno would be nothing without y'all.
+I'm sorry too if i have a mistakes during runing and own the Haruno.
+
+Changelog HARUNOBOT versi 3.0:
+1. Reduce the global (based at BochilGaming/wabot-games-md)
+2. Memperbaiki beberapa bug pada versi sebelum nya
+3. Menambah panduan umum, bagi users maupun owner/operator bot
+4. Memberikan hadiah reward kepada users (Ketik .reward untuk mendapatkan hadiah!)
+5. Membuat tampilan template sama
+6. Mengembalikan template lama menggunakan externalAdReply
+7. Menambah fitur _auto-fetch.js (sangat berguna jika menggunakan heroku atau replit nix yang menggunakan website agar on 24 jam. yang perlu kamu lakukan hanya menaruh link mu di global.webfetch pada config.js)
+8. Menambah fitur _tmp-remove.js (digunakan untuk membersihkan file yang ada di dalam file tmp)
+9. Memperbaiki creator.js
+
+Upcomming:
+1. Mengubah module tiktok downloader
+2. Mengubah module facebook downloader
+3. Menambah fitur autodownload
+4. Pengetesan pada penggunaan canvas

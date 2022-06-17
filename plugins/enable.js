@@ -1,3 +1,5 @@
+import db from '../lib/database.js'
+
 let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner }) => {
   let isEnable = /true|enable|(turn)?on|1/i.test(command)
   let chat = db.data.chats[m.chat]
@@ -17,30 +19,19 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
   ]
   let ch = [
     'antidelete',
-    'autodelvn',
     'delete',
     'document',
     'download',
-    'getmsg',
-    'sticker',
     'viewonce',
     'nsfw',
     'antibadword'
   ]
   let ow = [
-    'anon',
-    'anticall',
     'antispam',
     'autoread',
-    'broadcast',
-    'backup',
-    'gc',
-    'mycontact',
-    'online',
-    'pc',
-    'public',
     'restrict',
-    'nhentai'
+    'nhentai',
+    'report'
   ]
   switch (type) {
     // users
@@ -163,26 +154,6 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       chat.download = isEnable
       break
-    case 'getmsg':
-      if (m.isGroup) {
-        if (!(isAdmin || isOwner)) {
-          dfail('admin', m, conn)
-          throw false
-        }
-      }
-      chat.getmsg = isEnable
-      break
-    case 's':
-    case 'stiker':
-    case 'sticker':
-      if (m.isGroup) {
-        if (!(isAdmin || isOwner)) {
-          dfail('admin', m, conn)
-          throw false
-        }
-      }
-      chat.stiker = isEnable
-      break
     case 'v':
     case 'viewonce':
       if (m.isGroup) {
@@ -192,69 +163,6 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         }
       }
       chat.viewonce = isEnable
-      break
-    case 'nsfw':
-      if (m.isGroup) {
-        if (!(isAdmin || isOwner)) {
-          dfail('admin', m, conn)
-          throw false
-        }
-      }
-      chat.nsfw = isEnable
-      break
-    //owner
-    case 'backup':
-      isAll = true
-      if (!isROwner) {
-        dfail('rowner', m, conn)
-        throw false
-      }
-      set.backup = !isEnable 
-      break
-    case 'public':
-      isAll = true
-      if (!isROwner) {
-        dfail('rowner', m, conn)
-        throw false
-      }
-      set.self = !isEnable
-      break
-    case 'mycontact':
-    case 'mycontacts':
-    case 'whitelistcontact':
-    case 'whitelistcontacts':
-    case 'whitelistmycontact':
-    case 'whitelistmycontacts':
-      if (!isOwner) {
-        dfail('owner', m, conn)
-        throw false
-      }
-      conn.callWhitelistMode = isEnable
-      break
-    case 'allowbc':
-    case 'bc':
-    case 'broadcast':
-      if (!isOwner) {
-        dfail('owner', m, conn)
-        throw false
-      }
-      chat.broadcast = isEnable
-      break
-    case 'anon':
-      isAll = true
-      if (!isOwner) {
-        dfail('owner', m, conn)
-        throw false
-      }
-      set.anon = isEnable
-      break
-    case 'anticall':
-      isAll = true
-      if (!isOwner) {
-        dfail('owner', m, conn)
-        throw false
-      }
-      set.anticall = isEnable
       break
     case 'antispam':
       isAll = true
@@ -272,6 +180,14 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       set.nhentai = isEnable
       break
+    case 'report':
+      isAll = true
+      if (!isOwner) {
+        dfail('owner', m, conn)
+        throw false
+      }
+      set.report = isEnable
+      break
     case 'restrict':
       isAll = true
       if (!isOwner) {
@@ -280,17 +196,8 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       set.restrict = isEnable
       break
-    case 'pc':
-    case 'pconly':
-    case 'privateonly':
-      isAll = true
-      if (!isOwner) {
-        dfail('owner', m, conn)
-        throw false
-      }
-      set.private = isEnable
-      break
     case 'gc':
+    case 'self':
     case 'gconly':
     case 'grouponly':
       isAll = true
@@ -298,14 +205,14 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         dfail('owner', m, conn)
         throw false
       }
-      set.group = isEnable
+      set.self = isEnable
       break
     default:
       if (!/[01]/.test(command)) throw `
-${conn.top('Daftar opsi')}${isOwner ? '\n' + ow.map(v => '├ ' + v).join`\n` : ''}${m.isGroup ? '\n' + grup.map(v => '├ ' + v).join`\n` : ''}
+┌──「 Daftar opsi 」${isOwner ? '\n' + ow.map(v => '├ ' + v).join`\n` : ''}${m.isGroup ? '\n' + grup.map(v => '├ ' + v).join`\n` : ''}
 ${us.map(v => '├ ' + v).join`\n`}
 ${ch.map(v => '├ ' + v).join`\n`}
-${conn.bottom('Haruno')}
+└───
 contoh:
 ${usedPrefix}on welcome
 ${usedPrefix}off welcome

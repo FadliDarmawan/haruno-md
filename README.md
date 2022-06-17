@@ -1,4 +1,9 @@
 # Haruno
+<a href = "https://github.com/FadliDarmawan/haruno-md/blob/main/updatePatch/CHANGELOG"><img src = "https://telegra.ph/file/831188003a6180c72c38b.png">
+
+## Version 3.0 is Out!
+Dont forget to read the changelog.
+
 <a href = "https://github.com/FadliDarmawan/haruno-md"><img src = "https://cardivo.vercel.app/api?name=Haruno&description=Haruno,%20Bot%20WhatsApp%20multi%20device.%20Created%20by%20Nurutomo,%20BochilGaming,%20dan%20FadliDarmawan.&image=https://telegra.ph/file/196b5f6f24ccdc6805021.jpg?cb=20200606024545&usqp=CAU&usqp=CAU&backgroundColor=%23ecf0f1&github=FadliDarmawan&pattern=topography&colorPattern=%23eaeaea"/><a>
 
 ### Group Official Haruno

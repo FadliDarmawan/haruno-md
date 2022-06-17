@@ -1,9 +1,11 @@
+import db from '../lib/database.js'
+
 let limit = 100
 import fetch from 'node-fetch'
 import { youtubedl, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper';
 let handler = async (m, { conn, args, isPrems, isOwner }) => {
   if (!args || !args[0]) throw `Harap masukkan URL Youtube yang ingin di download!\n\nContoh: ${usedPrefix + command} https://youtu.be/zyJJlPSeEpo`
-  let chat = global.db.data.chats[m.chat]
+  let chat = db.data.chats[m.chat]
   const isY = /y(es)/gi.test(args[1])
   const { thumbnail, video: _video, title } = await youtubedl(args[0]).catch(async _ => await youtubedlv2(args[0])).catch(async _ => await youtubedlv3(args[0]))
   const limitedSize = (isPrems || isOwner ? 99 : limit) * 1024
@@ -29,7 +31,14 @@ let handler = async (m, { conn, args, isPrems, isOwner }) => {
 Judul: ${title}
 Filesize ${video.fileSizeH}
 *${isLimit ? 'Pakai ' : ''}Link:* ${link}
-`.trim(), m)
+`.trim(), m, false, { contextInfo: {
+  externalAdReply: {
+    title: `${isLimit ? 'Click here to download' : 'Download via web'}`,
+    body: 'Haruno bot',
+    thumbnailUrl: 'https://telegra.ph/file/37419ad0bce2a83dc6f5e.jpg',
+    sourceUrl: link
+  }
+}})
   let _thumb = {}
   try { _thumb = { thumbnail: await (await fetch(thumbnail)).buffer() } }
   catch (e) { }
@@ -44,6 +53,7 @@ Filesize: ${video.fileSizeH}
 handler.help = ['mp4', 'v', ''].map(v => 'yt' + v + ` <url> <without message>`)
 handler.tags = ['downloader']
 handler.command = /^yt(v|mp4)?$/i
+handler.limit = true
 
 handler.exp = 0
 

@@ -18,7 +18,14 @@ ${_gc2}
 ${_gc3}
 Harap patuhi rules dan peraturan pada masing masing group ya! Terimakasih.
 `.trim()
-        await conn.reply(m.chat, caption, m)
+        await conn.reply(m.chat, caption, m, { contextInfo: {
+            externalAdReply: {
+                sourceUrl: 'https://youtu.be/JktyyWr1N6I',
+                title: 'Rules',
+                body: 'Haruno',
+                thumbnailUrl: global.image
+            }
+        }})
     } catch (e) {
         let res = await fetch('https://raw.githubusercontent.com/FadliDarmawan/haruno-server/main/files/src.json')
         let json = await res.json()
@@ -33,7 +40,14 @@ ${json.links[1]}
 ${json.links[2]}
 Harap patuhi rules dan peraturan pada masing masing group ya! Terimakasih.
 `.trim()
-    await conn.reply(m.chat, tulisan, m)
+    await conn.reply(m.chat, tulisan, m, { contextInfo: {
+        externalAdReply: {
+            sourceUrl: 'https://youtu.be/JktyyWr1N6I',
+            title: 'Rules',
+            body: 'Haruno',
+            thumbnailUrl: global.image
+        }
+    }})
     }
 }
 handler.help = ['groupofficial']

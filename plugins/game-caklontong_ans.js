@@ -1,3 +1,5 @@
+import db from '../lib/database.js'
+
 import similarity from 'similarity'
 const threshold = 0.72
 export async function before(m) {
@@ -10,7 +12,7 @@ export async function before(m) {
     if (m.quoted.id == this.caklontong[id][0].id) {
         let json = JSON.parse(JSON.stringify(this.caklontong[id][1]))
         if (m.text.toLowerCase() == json.jawaban.toLowerCase().trim()) {
-            global.db.data.users[m.sender].exp += this.caklontong[id][2]
+            db.data.users[m.sender].exp += this.caklontong[id][2]
             await this.sendButton(m.chat, `*Benar!* +${this.caklontong[id][2]} XP\n${json.deskripsi}`, watermark, null, [['Cak Lontong', '.caklontong']], m)
             clearTimeout(this.caklontong[id][3])
             delete this.caklontong[id]

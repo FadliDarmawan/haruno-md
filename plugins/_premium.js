@@ -1,4 +1,4 @@
-let handler = m => m
+import db from '../lib/database.js'
 
 export async function all(m) {
     let user = db.data.users[m.sender]

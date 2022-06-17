@@ -1,10 +1,10 @@
-import moment from 'moment-timezone'
+import db from '../lib/database.js'
 import fetch from 'node-fetch'
 let handler = m => m
 
 export async function all(m) {
 
-    let user = global.db.data.users[m.sender]
+    let user = db.data.users[m.sender]
     if (m.chat.endsWith('broadcast')) return
     if (m.fromMe) return
     if (m.isGroup) return
@@ -12,7 +12,7 @@ export async function all(m) {
     if (db.data.settings.groupOnly) return
     let name = conn.getName(m.sender)
     let teks = `
-*Hi ${name}, ${this.ucapan()}*
+*Hi ${name}*
 Perkenalkan aku adalah Haruno bot!
 
 Kamu bisa menggunakan Haruno untuk membuat sticker, mendownload video youtube, facebook, tiktok, instagram, atau hanya sekedar bersenang senang! Fitur selengkapnya tentang Haruno bisa di lihat di *.menu*

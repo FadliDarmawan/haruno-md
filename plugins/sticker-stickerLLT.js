@@ -4,7 +4,7 @@ import { stickerLine, stickerTelegram } from '@bochilteam/scraper'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
     // TODO: add stickerly
     const isTele = /tele/i.test(command)
-    if (!args[0]) throw `*Perintah ini untuk mengambil stiker dari ${isTele ? 'Tele' : 'Line'}*\n\nContoh penggunaan:\n${usedPrefix + command} spongebob`
+    if (!args[0]) throw `Perintah ini untuk mengambil stiker dari ${isTele ? 'Tele' : 'Line'}\n\nContoh penggunaan:\n${usedPrefix + command} spongebob`
     const json = await (isTele ? stickerTelegram : stickerLine)(args[0])
     m.reply(`
 *Total stiker:* ${(json[0]?.stickers || json).length}

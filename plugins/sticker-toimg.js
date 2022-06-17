@@ -5,7 +5,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     if (!global.support.convert &&
         !global.support.magick &&
         !global.support.gm) return handler.disabled = true // Disable if doesnt support
-    const notStickerMessage = `Reply sticker with command *${usedPrefix + command}*`
+    const notStickerMessage = `Reply sticker dengan caption ${usedPrefix + command}`
     if (!m.quoted) throw notStickerMessage
     let q = m.quoted
     if (/sticker/.test(q.mediaType)) {

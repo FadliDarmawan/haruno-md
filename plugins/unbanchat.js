@@ -1,3 +1,5 @@
+import db from '../lib/database.js'
+
 let handler = async (m, { conn, isOwner, text, isAdmin }) => {
     let who
     if (m.isGroup) {
@@ -17,7 +19,7 @@ let handler = async (m, { conn, isOwner, text, isAdmin }) => {
     try {
       if (who.endsWith('g.us')) db.data.chats[who].isBanned = false
       else db.data.users[who].banned = false
-      await m.reply(`*${conn.user.name}* aktif dichat ${conn.getName(who) == undefined ? 'ini' : conn.getName(who)}.`)
+      await m.reply(`*${conn.getName(conn.user.jid)}* aktif dichat ${conn.getName(who) == undefined ? 'ini' : conn.getName(who)}.`)
     } catch (e) {
       throw `Nomor tidak ada didatabase!`
     }

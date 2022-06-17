@@ -1,3 +1,5 @@
+import db from '../lib/database.js'
+
 let handler = async (m, { usedPrefix, command, text }) => {
     let who
     if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text ? text.replace(/[^0-9]/g, '') + '@s.whatsapp.net' : false

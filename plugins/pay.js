@@ -1,4 +1,4 @@
-
+import db from '../lib/database.js'
    
 let pajak = 0.02
 let handler = async (m, { conn, text, usedPrefix, command }) => {
@@ -10,8 +10,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     conn.reply(m.chat, fail, m, { contextInfo: { mentionedJid: ['6285157336614@s.whatsapp.net'] } })
     throw false
   }
-  if (typeof global.db.data.users[who] == "undefined") {
-    global.db.data.users[who] = {
+  if (typeof db.data.users[who] == "undefined") {
+    db.data.users[who] = {
       exp: 0,
       limit: 10,
       lastclaim: 0,
@@ -40,7 +40,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   let pjk = Math.ceil(xp * pajak)
   exp += pjk
   if (exp < 1) throw 'minimal 1'
-  let users = global.db.data.users
+  let users = db.data.users
   if (exp > users[m.sender].exp) throw 'Exp tidak mencukupi untuk mentransfer, ada pajaknya juga'
   users[m.sender].exp -= exp
   users[who].exp += xp

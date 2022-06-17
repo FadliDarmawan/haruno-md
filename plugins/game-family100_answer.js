@@ -1,3 +1,5 @@
+import db from '../lib/database.js'
+
 import similarity from 'similarity'
 const threshold = 0.72 // semakin tinggi nilai, semakin mirip
 export async function before(m) {
@@ -17,7 +19,7 @@ export async function before(m) {
         }
         if (room.terjawab[index])
             return !0
-        let users = global.db.data.users[m.sender]
+        let users = db.data.users[m.sender]
         room.terjawab[index] = m.sender
         users.exp += room.winScore
     }

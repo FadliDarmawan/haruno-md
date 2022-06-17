@@ -1,3 +1,5 @@
+import db from '../lib/database.js'
+
 let limit = 80
 import fetch from 'node-fetch'
 import { youtubedl, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper';
@@ -27,9 +29,16 @@ let handler = async (m, { conn, args, isPrems, isOwner }) => {
   if ((!(source instanceof ArrayBuffer) || !link || !res.ok) && !isLimit) throw 'Error: ' + (lastError || 'Can\'t download audio')
   if (!isY && !isLimit) await conn.sendFile(m.chat, thumbnail, 'thumbnail.jpg', `
 Judul: ${title}
-Filesize: ${audio.fileSizeH}
+Filesize ${audio.fileSizeH}
 *${isLimit ? 'Pakai ' : ''}Link:* ${link}
-`.trim(), m)
+`.trim(), m, false, { contextInfo: {
+  externalAdReply: {
+    title: `${isLimit ? 'Click here to download' : 'Download via web'}`,
+    body: 'Haruno bot',
+    thumbnailUrl: 'https://telegra.ph/file/37419ad0bce2a83dc6f5e.jpg',
+    sourceUrl: link
+  }
+}})
   if (!isLimit) await conn.sendFile(m.chat, source, title + '.mp3', `
 Judul: ${title}
 Filesize: ${audio.fileSizeH}
@@ -41,6 +50,7 @@ Filesize: ${audio.fileSizeH}
 handler.help = ['mp3', 'a'].map(v => 'yt' + v + ` <url>`)
 handler.tags = ['downloader']
 handler.command = /^yt(a|mp3)$/i
+handler.limit = true
 
 handler.exp = 0
 

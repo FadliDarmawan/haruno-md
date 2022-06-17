@@ -1,5 +1,4 @@
-import { readFileSync } from 'fs'
-import fetch from 'node-fetch'
+import db from '../lib/database.js'
 let { sticker } = await import('../lib/sticker.js')
 let handler = m => m
 
@@ -9,7 +8,6 @@ export async function all(m, { isBlocked }) {
     if (m.isBaileys) return
     if (m.chat.endsWith('broadcast')) return
     let setting = db.data.settings[this.user.jid]
-    let name = conn.user.name
 
     // ketika ditag
     try {
@@ -25,22 +23,20 @@ export async function all(m, { isBlocked }) {
 
     // ketika ada yang invite/kirim link grup di chat pribadi
     if ((m.mtype === 'groupInviteMessage' || m.text.startsWith('https://chat') || m.text.startsWith('Buka tautan ini')) && !m.isBaileys && !m.isGroup) {
-        await this.reply(m.chat, `${this.top('Add group')}
+        await this.reply(m.chat, `┌──「 Add group 」
 ├ *Free 1 Hari*
 ├ *1 Bulan:* Rp10.000
 │
 ├「 Premium 」
 ├ *Selamanya*: Rp12.500
-│
-${this.bottom('Haruno')}
+└───
 
-${this.top('Pembayaran')}
+┌──「 Pembayaran 」
 ├ *Dana:* 628112958665
 ├ *OVO:* 628112958665
 ├ *GoPay:* 628112958665
 ├ *Pulsa:* 6281943265086 (+Rp5k)
-│
-${this.bottom('Haruno')}
+└───
 
 *Note:* Pembayaran menggunakan pulsa dikenakan tambahan Rp5.000.`
 , m)
@@ -54,6 +50,7 @@ ${this.bottom('Haruno')}
     }
 
     // backup db
+    /*
     if (setting.backup) {
         if (new Date() * 1 - setting.backupDB > 1000 * 60 * 60) {
             let d = new Date
@@ -68,4 +65,5 @@ ${this.bottom('Haruno')}
             this.sendFile(global.owner[0] + '@s.whatsapp.net', readFileSync('./database.json'), 'database.json', '', 0, 0, { mimetype: 'application/json' })
         }
     }
+    */
 }

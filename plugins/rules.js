@@ -30,7 +30,7 @@ ${watermark}`.trim()
             sourceUrl: 'https://youtu.be/JktyyWr1N6I',
             title: 'Rules',
             body: 'Haruno',
-            thumbnailUrl: image
+            thumbnailUrl: global.image
         }
     }})
 }

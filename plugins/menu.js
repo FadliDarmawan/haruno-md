@@ -9,7 +9,7 @@ const defaultMenu = {
 ├ Hai, *%name!*
 ├ %time
 │
-├ Jika ada error atau bug silahkan report.
+├ *%watermark%*
 └───
 %readmore`.trimStart(),
   header: '┌──「 %category 」',
@@ -408,7 +408,8 @@ let handler = async (m, { conn, usedPrefix: _p, args, command, __dirname }) => {
     let replace = {
       '%': '%',
       p: _p, uptime, muptime,
-      me: conn.user.name,
+      me: conn.getName(conn.user.jid),
+      watermark: global.watermark,
       npmname: packager.name,
       npmdesc: packager.description,
       version: packager.version,

@@ -23,7 +23,18 @@ let handler = async(m, { conn, usedPrefix, text, command }) => {
         }
     }
     if ((!(source instanceof ArrayBuffer) || !link || !res.ok)) throw 'Error: ' + (lastError || 'Can\'t download audio')
-    await conn.sendFile(m.chat, thumbnail, '', `${title}\nRequested by @${user.split`@`[0]}`, m, null, { mentions: [user]})
+    this.reply(id, `${title}\nRequested by @${user.split`@`[0]}`, 0, { mentions: [user], contextInfo: {
+        externalAdReply: {
+            title: 'Now playing',
+            body: title,
+            description: 'Haruno Bot',
+            mediaUrl: '',
+            thumbnailUrl: thumbnail,
+            mediaType: 2,
+            sourceUrl: args[0]
+        }
+    }})
+    // await conn.sendFile(m.chat, thumbnail, '', `${title}\nRequested by @${user.split`@`[0]}`, m, null, { mentions: [user]})
     await conn.sendFile(m.chat, source, title + '.mp3', null, m, null, { mimetype: 'audio/mp4' })
 }
 handler.command = /^(play|p)$/i

@@ -1,5 +1,5 @@
 import fetch from 'node-fetch'
-let handler = async(m) => {
+let handler = async(m, { conn }) => {
     let who
     if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender
     else who = m.sender
