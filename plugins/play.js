@@ -23,7 +23,7 @@ let handler = async(m, { conn, usedPrefix, text, command }) => {
         }
     }
     if ((!(source instanceof ArrayBuffer) || !link || !res.ok)) throw 'Error: ' + (lastError || 'Can\'t download audio')
-    this.reply(id, `${title}\nRequested by @${user.split`@`[0]}`, 0, { mentions: [user], contextInfo: {
+    conn.reply(m.chat, `${title}\nRequested by @${user.split`@`[0]}`, m, { mentions: [user], contextInfo: {
         externalAdReply: {
             title: 'Now playing',
             body: title,
