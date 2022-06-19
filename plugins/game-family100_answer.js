@@ -1,4 +1,4 @@
-import db from '../lib/database.js'
+// import db from '../lib/database.js'
 
 import similarity from 'similarity'
 const threshold = 0.72 // semakin tinggi nilai, semakin mirip

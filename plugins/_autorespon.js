@@ -1,4 +1,4 @@
-import db from '../lib/database.js'
+// import db from '../lib/database.js'
 let { sticker } = await import('../lib/sticker.js')
 let handler = m => m
 

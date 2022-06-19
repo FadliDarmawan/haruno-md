@@ -1,4 +1,4 @@
-import db from '../lib/database.js'
+// import db from '../lib/database.js'
 
 export async function all(m) {
     if (!db.data.settings[this.user.jid].antispam) return

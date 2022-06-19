@@ -1,4 +1,4 @@
-import db from '../lib/database.js'
+// import db from '../lib/database.js'
 let handler = async(m, { conn }) => {
     let user = db.data.users[m.sender]
     if (!user.claimed) {

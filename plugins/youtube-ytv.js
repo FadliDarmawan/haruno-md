@@ -1,4 +1,4 @@
-import db from '../lib/database.js'
+// import db from '../lib/database.js'
 
 let limit = 100
 import fetch from 'node-fetch'

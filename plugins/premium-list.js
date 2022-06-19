@@ -1,4 +1,4 @@
-import db from '../lib/database.js'
+// import db from '../lib/database.js'
 
 let handler = async (m, { conn, args }) => {
     let users = Object.entries(db.data.users).filter(user => user[1].premium).map(([key, value]) => {

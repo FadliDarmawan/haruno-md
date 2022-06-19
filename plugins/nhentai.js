@@ -1,5 +1,5 @@
+// import db from '../lib/database4.js'
 import nhentai from 'nhentai-node-api'
-import db from '../lib/database.js'
 import request from 'request'
 import topdf from 'image-to-pdf'
 import fetch from 'node-fetch'

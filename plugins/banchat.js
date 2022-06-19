@@ -1,24 +1,22 @@
-let handler = async (m, { conn, isOwner, text, isAdmin }) => {
-  let who
-  if (m.isGroup) {
-    if (!(isAdmin || isOwner)) return dfail('admin', m, conn)
-    if (isOwner) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text ? text.replace(/[^0-9]/g, '') + '@s.whatsapp.net' : m.chat
-    else who = m.chat
-  } else {
-    if (!isOwner) return dfail('owner', m, conn)
-    who = text ? text.replace(/[^0-9]/g, '') + '@s.whatsapp.net' : m.chat
-  }
+// import db from '../lib/database.js'
 
-  try {
-    if (who.endsWith('g.us')) db.data.chats[who].isBanned = true
-    else db.data.users[who].banned = true
-    await m.reply(`${conn.getName(conn.user.jid)} sekarang tidak aktif dichat ${conn.getName(who) == undefined ? 'ini' : conn.getName(who)}.`)
-  } catch (e) {
-    throw `ID tidak ada didatabase.`
-  }
+let handler = async (m, { participants, conn }) => {
+    db.data.chats[m.chat].isBanned = true
+    let name = await conn.getName(m.chat)
+    await conn.reply(m.chat, `*Haruno* berhasil diban di ${name}`, m, { contextInfo: {
+      externalAdReply: {
+          sourceUrl: 'https://youtu.be/-tKVN2mAKRI',
+          title: 'Banchat',
+          body: 'Haruno',
+          thumbnailUrl: global.image
+      }
+  }})
+    // m.reply('Done!')
 }
-handler.help = ['ban']
-handler.tags = ['owner', 'group']
-handler.command = /^ban$/i
+handler.help = ['banchat']
+handler.tags = ['admin', 'group']
+handler.command = /^banchat$/i
+handler.admin = true
+handler.group = true
 
 export default handler

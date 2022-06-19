@@ -1,4 +1,4 @@
-import db from '../lib/database.js'
+// import db from '../lib/database.js'
 import { schedule } from "node-cron"
 import fetch from "node-fetch"
 

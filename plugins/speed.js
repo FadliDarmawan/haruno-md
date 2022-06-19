@@ -1,6 +1,7 @@
 import { cpus as _cpus, totalmem, freemem } from 'os'
 import { performance } from 'perf_hooks'
 import { sizeFormatter } from 'human-readable'
+import util from 'util'
 let format = sizeFormatter({
   std: 'JEDEC', // 'SI' (default) | 'IEC' | 'JEDEC'
   decimalPlaces: 2,
@@ -8,7 +9,7 @@ let format = sizeFormatter({
   render: (literal, symbol) => `${literal} ${symbol}B`,
 })
 let handler = async (m, { conn }) => {
-  const chats = Object.entries(Connection.store.chats).filter(([id, data]) => id && data.isChats)
+  const chats = Object.entries(conn.chats).filter(([id, data]) => id && data.isChats)
   const groupsIn = chats.filter(([id]) => id.endsWith('@g.us')) //groups.filter(v => !v.read_only)
   const used = process.memoryUsage()
   const cpus = _cpus().map(cpu => {
@@ -36,7 +37,7 @@ let handler = async (m, { conn }) => {
     }
   })
   let old = performance.now()
-  await m.reply('_Testing speed..._')
+  await message
   let neww = performance.now()
   let speed = neww - old
   m.reply(`

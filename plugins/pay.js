@@ -1,4 +1,4 @@
-import db from '../lib/database.js'
+// import db from '../lib/database.js'
    
 let pajak = 0.02
 let handler = async (m, { conn, text, usedPrefix, command }) => {

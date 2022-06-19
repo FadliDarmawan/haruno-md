@@ -17,6 +17,11 @@ Changelog HARUNOBOT versi 3.0:
 8. Menambah fitur _tmp-remove.js (digunakan untuk membersihkan file yang ada di dalam file tmp)
 9. Memperbaiki creator.js
 
+Changelog HARUNOBOT versi 3.0.1:
+1. Mengembalikan sistem lama (untuk sistem baru akan dites terlebihdahulu sebelum diimplementasikan)
+2. Membuat sistem createServer secara default di main.js
+3. Memisahkan antara ban user dan ban chat (untuk ban user hanya bisa dilakukan oleh owner sementara ban atau unban chat bisa dilakukan oleh admin dari group tersebut)
+
 Upcomming:
 1. Mengubah module tiktok downloader
 2. Mengubah module facebook downloader

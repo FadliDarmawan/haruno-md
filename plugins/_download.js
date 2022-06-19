@@ -1,4 +1,4 @@
-import db from '../lib/database.js'
+// import db from '../lib/database.js'
 
 export async function all(m) {
     let chat = db.data.chats[m.chat]

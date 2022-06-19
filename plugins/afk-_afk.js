@@ -1,4 +1,4 @@
-import db from '../lib/database.js'
+// import db from '../lib/database.js'
 
 export function before(m) {
     let user = db.data.users[m.sender]

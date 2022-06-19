@@ -1,6 +1,6 @@
 let linkRegex = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})/i
 import fetch from 'node-fetch'
-import db from '../lib/database.js'
+// import db from '../lib/database.js'
 
 let handler = async (m, { conn, args, usedPrefix, isPrems, isOwner, command }) => {
     if (!args[0]) throw `Harap masukkan link group yang ingin dimasukkan bot nya.\n\nContoh: *${usedPrefix + command} https://chat.whatsapp.com/Dqdjz7aSWJj0IyORAsdYom`
