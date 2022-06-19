@@ -1,7 +1,7 @@
 import yts from 'yt-search'
 import fetch from 'node-fetch'
 import { youtubedl, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper';
-let handler = async(m, { conn, usedPrefix, text, command }) => {
+let handler = async(m, { conn, usedPrefix, text, command, args }) => {
     let user = m.sender
     let name = conn.getName(user)
     if (!text) throw `Harap masukkan query!\n\nContoh: ${usedPrefix + command} yanagi nagi one's hope`
