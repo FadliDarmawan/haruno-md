@@ -23,17 +23,31 @@ let handler = async(m, { conn, usedPrefix, text, command, args }) => {
         }
     }
     if ((!(source instanceof ArrayBuffer) || !link || !res.ok)) throw 'Error: ' + (lastError || 'Can\'t download audio')
-    conn.reply(m.chat, `${title}\nRequested by @${user.split`@`[0]}`, m, { mentions: [user], contextInfo: {
-        externalAdReply: {
-            title: 'Now playing',
-            body: title,
-            description: 'Haruno Bot',
-            mediaUrl: '',
-            thumbnailUrl: thumbnail,
-            mediaType: 2,
-            sourceUrl: args[0]
-        }
-    }})
+    let capt = `
+${title}
+Requested by @${user.split`@`[0]}
+
+Bot akan secara otomatis mengirimkan file audio.`
+    const message = {
+        image: { url: thumbnail},
+        jpegThumbnail: await(await fetch(thumbnail)).buffer(),
+        caption: capt,
+        footer: watermark,
+        templateButtons: [
+            {
+                urlButton: {
+                    displayText: 'Open on Youtube',
+                    url: vid.url
+                }
+            }, {
+                quickReplyButton: {
+                    displayText: 'Download mp4',
+                    id: `.ytmp4 ${vid.url}`
+                }
+            }
+        ]
+    }
+    await conn.sendMessage(m.chat, message, { quoted: m}, { mentions: [user]})
     // await conn.sendFile(m.chat, thumbnail, '', `${title}\nRequested by @${user.split`@`[0]}`, m, null, { mentions: [user]})
     await conn.sendFile(m.chat, source, title + '.mp3', null, m, null, { mimetype: 'audio/mp4' })
 }

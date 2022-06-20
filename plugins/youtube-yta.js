@@ -30,7 +30,6 @@ let handler = async (m, { conn, args, isPrems, isOwner }) => {
   if (!isY && !isLimit) await conn.sendFile(m.chat, thumbnail, 'thumbnail.jpg', `
 Judul: ${title}
 Filesize ${audio.fileSizeH}
-*${isLimit ? 'Pakai ' : ''}Link:* ${link}
 `.trim(), m, false, { contextInfo: {
   externalAdReply: {
     title: `${isLimit ? 'Click here to download' : 'Download via web'}`,
